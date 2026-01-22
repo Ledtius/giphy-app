@@ -1,11 +1,18 @@
 import { useState } from "react";
+import { GiphyUrls } from "../services/GiphyUrls";
 
 export const useGiphy = () => {
   console.log("--useGiphy--");
 
   const [searchValue, setSearchValue] = useState("");
 
-  const [data, setData] = useState({});
+  const [dataApi, setDataApi] = useState({});
 
-  return { searchValue, setSearchValue, data, setData };
+  const data = dataApi?.data || [];
+
+  const gifUrls = GiphyUrls(data);
+
+  console.log(gifUrls);
+
+  return { searchValue, setSearchValue, dataApi, setDataApi };
 };
