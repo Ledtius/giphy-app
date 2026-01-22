@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 
 export const Form = () => {
+  console.log("--Form--");
   const { setSearchValue } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");

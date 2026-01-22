@@ -12,7 +12,7 @@ export const useGiphy = () => {
 
   const gifUrls = GiphyUrls(data);
 
-  console.log(gifUrls);
+  if (gifUrls.length > 0) console.log("||urls filled||");
 
   return { searchValue, setSearchValue, dataApi, setDataApi };
 };

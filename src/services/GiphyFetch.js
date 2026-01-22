@@ -10,6 +10,7 @@ export const GiphyFetch = () => {
 
   const queryApi = async () => {
     try {
+      console.log("||feching||")
       const response = await fetch(
         `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${searchValue}`,
       );
