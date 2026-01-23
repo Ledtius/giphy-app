@@ -7,5 +7,15 @@ export const List = () => {
 
   console.log(gifUrls);
 
-  return <></>;
+  return (
+    <>
+      <ul>
+        {gifUrls.map((gifUrl) => (
+          <li>
+            <img src={gifUrl} alt="gif" key={crypto.randomUUID()} />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 };
