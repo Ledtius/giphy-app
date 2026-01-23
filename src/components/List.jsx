@@ -5,14 +5,12 @@ export const List = () => {
   console.log("--List--");
   const { gifUrlIds } = useContext(GiphyContext);
 
-  console.log(gifUrlIds);
-
   return (
     <>
       <ul>
-        {gifUrlIds.map((gifUrl) => (
-          <li>
-            <img src={gifUrl} alt="gif" key={crypto.randomUUID()} />
+        {gifUrlIds.map(({ id, url }) => (
+          <li key={id}>
+            <img src={url} alt="gif" />
           </li>
         ))}
       </ul>
