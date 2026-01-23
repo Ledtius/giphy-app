@@ -4,13 +4,13 @@ import { useGiphy } from "../hooks/useGiphy";
 
 export const GiphyProvider = ({ children }) => {
   console.log("--GiphyProvider--");
-  const { searchValue, setSearchValue, dataApi, setDataApi, gifUrls } =
+  const { searchValue, setSearchValue, dataApi, setDataApi, gifUrlIds } =
     useGiphy();
 
   return (
     <>
       <GiphyContext.Provider
-        value={{ searchValue, setSearchValue, dataApi, setDataApi, gifUrls }}
+        value={{ searchValue, setSearchValue, dataApi, setDataApi, gifUrlIds }}
       >
         {children}
       </GiphyContext.Provider>

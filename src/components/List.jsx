@@ -3,14 +3,14 @@ import { GiphyContext } from "../context/GiphyContext";
 
 export const List = () => {
   console.log("--List--");
-  const { gifUrls } = useContext(GiphyContext);
+  const { gifUrlIds } = useContext(GiphyContext);
 
-  console.log(gifUrls);
+  console.log(gifUrlIds);
 
   return (
     <>
       <ul>
-        {gifUrls.map((gifUrl) => (
+        {gifUrlIds.map((gifUrl) => (
           <li>
             <img src={gifUrl} alt="gif" key={crypto.randomUUID()} />
           </li>

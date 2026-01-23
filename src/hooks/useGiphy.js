@@ -10,9 +10,9 @@ export const useGiphy = () => {
 
   const data = dataApi?.data || [];
 
-  const gifUrls = GiphyUrls(data);
+  const gifUrlIds = GiphyUrls(data);
 
-  if (gifUrls.length > 0) console.log("..urls filled..");
+  if (gifUrlIds.length > 0) console.log("..urls filled..");
 
-  return { searchValue, setSearchValue, dataApi, setDataApi, gifUrls };
+  return { searchValue, setSearchValue, dataApi, setDataApi, gifUrlIds };
 };
