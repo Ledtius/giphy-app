@@ -3,7 +3,10 @@ import { GiphyContext } from "../context/GiphyContext";
 
 export const List = () => {
   console.log("--List--");
-  const { gifUrlIds } = useContext(GiphyContext);
+  const { gifUrlIds, gifUrlIdsStorage } = useContext(GiphyContext);
+
+/*   console.log("--List--");
+  console.log({ gifUrlIdsStorage }); */
 
   return (
     <>

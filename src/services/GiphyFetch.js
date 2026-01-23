@@ -24,6 +24,8 @@ export const GiphyFetch = () => {
   };
 
   useEffect(() => {
+    console.log("**useEffect of GiphyFetch**");
+
     if (searchValue) {
       queryApi();
     }

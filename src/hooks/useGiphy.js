@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiphyUrls } from "../services/GiphyUrls";
 
 export const useGiphy = () => {
@@ -8,11 +8,28 @@ export const useGiphy = () => {
 
   const [dataApi, setDataApi] = useState({});
 
-  const data = dataApi?.data || [];
+  const [gifUrlIdsStorage, setGifUrlIdsStorage] = useState(
+    () => JSON.parse(localStorage.getItem("gifIdStorage")) || [],
+  );
 
-  const gifUrlIds = GiphyUrls(data);
+  let gifUrlIds = [];
 
-  if (gifUrlIds.length > 0) console.log("..urls filled..");
+  if (Object.keys(dataApi).length) {
+    const { data } = dataApi;
+    gifUrlIds = GiphyUrls(data);
+  }
 
-  return { searchValue, setSearchValue, dataApi, setDataApi, gifUrlIds };
+  useEffect(() => {
+    console.log("**useEffect of useGiphy**");
+  }, []);
+
+  return {
+    searchValue,
+    setSearchValue,
+    dataApi,
+    setDataApi,
+    gifUrlIds,
+    gifUrlIdsStorage,
+    setGifUrlIdsStorage,
+  };
 };
