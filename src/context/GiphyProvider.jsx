@@ -10,8 +10,7 @@ export const GiphyProvider = ({ children }) => {
     dataApi,
     setDataApi,
     gifUrlIds,
-    gifUrlIdsStorage,
-    setGifUrlIdsStorage,
+    searchValueList,
   } = useGiphy();
 
   return (
@@ -23,8 +22,7 @@ export const GiphyProvider = ({ children }) => {
           dataApi,
           setDataApi,
           gifUrlIds,
-          gifUrlIdsStorage,
-          setGifUrlIdsStorage,
+          searchValueList,
         }}
       >
         {children}

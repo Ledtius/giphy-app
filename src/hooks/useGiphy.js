@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GiphyUrls } from "../services/GiphyUrls";
+import { useStorage } from "../hooks/useStorage";
 
 export const useGiphy = () => {
   console.log("--useGiphy--");
@@ -8,10 +9,6 @@ export const useGiphy = () => {
 
   const [dataApi, setDataApi] = useState({});
 
-  const [gifUrlIdsStorage, setGifUrlIdsStorage] = useState(
-    () => JSON.parse(localStorage.getItem("gifIdStorage")) || [],
-  );
-
   let gifUrlIds = [];
 
   if (Object.keys(dataApi).length) {
@@ -19,9 +16,9 @@ export const useGiphy = () => {
     gifUrlIds = GiphyUrls(data);
   }
 
-  useEffect(() => {
-    console.log("**useEffect of useGiphy**");
-  }, []);
+  const { searchValueList } = useStorage(searchValue);
+
+  // console.log(searchValueList);
 
   return {
     searchValue,
@@ -29,7 +26,6 @@ export const useGiphy = () => {
     dataApi,
     setDataApi,
     gifUrlIds,
-    gifUrlIdsStorage,
-    setGifUrlIdsStorage,
+    searchValueList,
   };
 };

@@ -3,6 +3,7 @@ import { GiphyContext } from "../context/GiphyContext";
 
 export const Form = () => {
   console.log("--Form--");
+
   const { setSearchValue } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");
@@ -14,7 +15,9 @@ export const Form = () => {
   };
 
   const handleClick = () => {
+    console.log("--Form-- setSearchValue");
     setSearchValue(inputValue);
+
     setInputValue("");
   };
 

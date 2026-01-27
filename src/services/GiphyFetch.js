@@ -17,6 +17,7 @@ export const GiphyFetch = () => {
 
       const data = await response.json();
 
+      console.log("__GiphyFetch__ setDataApi");
       setDataApi(data);
     } catch (e) {
       console.error(`Fetch error: ${e}`);
@@ -27,6 +28,7 @@ export const GiphyFetch = () => {
     console.log("**useEffect of GiphyFetch**");
 
     if (searchValue) {
+      console.log("**useEffect of GiphyFetch by searchValue**");
       queryApi();
     }
   }, [searchValue]);
