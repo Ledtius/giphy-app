@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 
 export const useStorage = (searchValue) => {
-  console.log("__GiphyStorage__");
+  console.log("--useStorage--");
 
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
