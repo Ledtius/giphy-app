@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { GiphyContext } from "../context/GiphyContext";
+import { useEffect, useState } from "react";
 
 export const useStorage = (searchValue) => {
   console.log("--useStorage--");
@@ -11,28 +10,28 @@ export const useStorage = (searchValue) => {
   console.log({ searchValue, searchValueList });
 
   useEffect(() => {
-    console.log(searchValueList);
-    if (searchValue) setSearchValueList([...searchValueList, searchValue]);
-    localStorage.setItem(
-      "searchValueStList",
-      JSON.stringify([...searchValueList, searchValue]),
-    );
+    console.log("**useEffect of useStorage**");
+    console.log({ searchValueList });
+
+    if (searchValue) {
+      console.log("**useEffect of useStorage by searchValue**");
+
+      console.log("--useStorage setSearchValueList--");
+      setSearchValueList([
+        ...searchValueList,
+        { value: searchValue, id: crypto.randomUUID() },
+      ]);
+
+      console.log("--creating/recreating localStorage--");
+      localStorage.setItem(
+        "searchValueStList",
+        JSON.stringify([
+          ...searchValueList,
+          { value: searchValue, id: crypto.randomUUID() },
+        ]),
+      );
+    }
   }, [searchValue]);
-
-  // useEffect(() => {
-  //   console.log("**useEffect of GiphyStorage**");
-  //   if (Object.keys(dataApi).length) {
-  //     console.log("**useEffect of GiphyStorage dataApi**");
-  //     localStorage.setItem(
-  //       "searchValueStList",
-  //       JSON.stringify([...searchValueList, searchValue]),
-
-  //       setSearchValueList(
-  //         JSON.parse(localStorage.getItem("searchValueStList")) || [],
-  //       ),
-  //     );
-  //   }
-  // }, [dataApi]);
 
   return { searchValueList };
 };

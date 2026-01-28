@@ -11,6 +11,8 @@ export const GiphyProvider = ({ children }) => {
     setDataApi,
     gifUrlIds,
     searchValueList,
+    valueClicked,
+    setValueClicked,
   } = useGiphy();
 
   return (
@@ -23,6 +25,8 @@ export const GiphyProvider = ({ children }) => {
           setDataApi,
           gifUrlIds,
           searchValueList,
+          valueClicked,
+          setValueClicked,
         }}
       >
         {children}

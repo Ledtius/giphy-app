@@ -18,7 +18,9 @@ export const useGiphy = () => {
 
   const { searchValueList } = useStorage(searchValue);
 
-  // console.log(searchValueList);
+  const [valueClicked, setValueClicked] = useState("");
+
+  console.log(valueClicked);
 
   return {
     searchValue,
@@ -27,5 +29,7 @@ export const useGiphy = () => {
     setDataApi,
     gifUrlIds,
     searchValueList,
+    valueClicked,
+    setValueClicked,
   };
 };
