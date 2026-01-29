@@ -6,26 +6,33 @@ import { GiphyFetch } from "../services/GiphyFetch";
 export const ListSearch = () => {
   console.log("--ListSearch--");
 
-  const { searchValueList, setValueClicked, searchValue } =
+  const { searchValueList, setValueClicked, valueClicked,searchValue } =
     useContext(GiphyContext);
 
   console.log(searchValueList);
 
-  const [stateValueClicked, setStateValueClicked] = useState("");
+  // const [stateValueClicked, setStateValueClicked] = useState("");
 
   const handleClick = (e) => {
     const eventValueText = e.target.textContent;
 
     console.log(eventValueText);
+    
     setValueClicked(eventValueText);
-    setStateValueClicked(eventValueText);
+    // setStateValueClicked(eventValueText);
   };
 
   useEffect(() => {
-    if (searchValue) setValueClicked("");
+    if (searchValue) {
+      setValueClicked("");
+      
+      console.log(searchValue);
+    }
+    // console.log(stateValueClicked);
   }, [searchValue]);
-
-  console.log(stateValueClicked);
+  
+  // console.log(value)
+  // console.log(stateValueClicked);
   return (
     <>
       <h2 className="text-xl font-bold">Historial de busqueda</h2>
@@ -35,7 +42,7 @@ export const ListSearch = () => {
           return (
             <li
               className={`rounded-2xl p-2 cursor-pointer hover:bg-gray-500 ${
-                stateValueClicked === value
+                valueClicked === value
                   ? "text-white bg-black"
                   : "text-black bg-red-400"
               }`}
