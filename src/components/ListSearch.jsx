@@ -1,38 +1,50 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useDebugValue, useEffect, useState } from "react";
 
 import { GiphyContext } from "../context/GiphyContext";
-import { GiphyFetch } from "../services/GiphyFetch";
+import { useDeleteStorage } from "../hooks/useDeleteStorage";
 
 export const ListSearch = () => {
   console.log("--ListSearch--");
 
-  const { searchValueList, setValueClicked, valueClicked,searchValue } =
-    useContext(GiphyContext);
-
-  console.log(searchValueList);
-
-  // const [stateValueClicked, setStateValueClicked] = useState("");
+  const {
+    searchValueList,
+    setSearchValueList,
+    setValueClicked,
+    valueClicked,
+    searchValue,
+  } = useContext(GiphyContext);
 
   const handleClick = (e) => {
     const eventValueText = e.target.textContent;
 
     console.log(eventValueText);
-    
-    setValueClicked(eventValueText);
-    // setStateValueClicked(eventValueText);
+    if (eventValueText !== "x") setValueClicked(eventValueText);
   };
 
   useEffect(() => {
     if (searchValue) {
       setValueClicked("");
-      
+
       console.log(searchValue);
     }
-    // console.log(stateValueClicked);
   }, [searchValue]);
-  
-  // console.log(value)
-  // console.log(stateValueClicked);
+
+  const handleClickDeletedAll = (e, valueComponent) => {
+    console.log(valueComponent);
+    const eventValueText = e.target.textContent;
+    console.log({ eventValueText });
+    useDeleteStorage(
+      eventValueText,
+      valueComponent,
+      searchValueList,
+      setSearchValueList,
+    );
+  };
+
+  const handleClickDelete = (e) => {
+    const eventValueText = e.target.textContent;
+  };
+
   return (
     <>
       <h2 className="text-xl font-bold">Historial de busqueda</h2>
@@ -41,19 +53,32 @@ export const ListSearch = () => {
         {searchValueList.map(({ value, id }) => {
           return (
             <li
-              className={`rounded-2xl p-2 cursor-pointer hover:bg-gray-500 ${
+              className={`rounded-2xl p-2 cursor-pointer hover:bg-gray-500 flex gap-3.5 ${
                 valueClicked === value
                   ? "text-white bg-black"
                   : "text-black bg-red-400"
               }`}
               key={id}
-              onClick={handleClick}
             >
-              {value}
+              <span onClick={handleClick}>{value}</span>
+              <span
+                onClick={(e) => {
+                  handleClickDeletedAll(e, value);
+                }}
+              >
+                x
+              </span>
             </li>
           );
         })}
       </ul>
+
+      <button
+        className="rounded-2xl p-2 cursor-pointer hover:bg-gray-500 bg-blue-500"
+        onClick={handleClickDeletedAll}
+      >
+        Vaciar historial
+      </button>
     </>
   );
 };

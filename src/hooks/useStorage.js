@@ -33,5 +33,5 @@ export const useStorage = (searchValue) => {
     }
   }, [searchValue]);
 
-  return { searchValueList };
+  return { searchValueList, setSearchValueList };
 };
