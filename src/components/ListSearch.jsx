@@ -1,24 +1,24 @@
-import { useContext, useDebugValue, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import { GiphyContext } from "../context/GiphyContext";
-import { useDeleteStorage } from "../hooks/useDeleteStorage";
 
 export const ListSearch = () => {
   console.log("--ListSearch--");
 
   const {
     searchValueList,
-    setSearchValueList,
     setValueClicked,
     valueClicked,
     searchValue,
+    deleteAll,
+    deleteOne,
   } = useContext(GiphyContext);
 
   const handleClick = (e) => {
     const eventValueText = e.target.textContent;
 
-    console.log(eventValueText);
-    if (eventValueText !== "x") setValueClicked(eventValueText);
+    console.log({ eventValueText });
+    setValueClicked(eventValueText);
   };
 
   useEffect(() => {
@@ -29,20 +29,12 @@ export const ListSearch = () => {
     }
   }, [searchValue]);
 
-  const handleClickDeletedAll = (e, valueComponent) => {
-    console.log(valueComponent);
-    const eventValueText = e.target.textContent;
-    console.log({ eventValueText });
-    useDeleteStorage(
-      eventValueText,
-      valueComponent,
-      searchValueList,
-      setSearchValueList,
-    );
+  const handleClickDeletedAll = () => {
+    deleteAll();
   };
 
-  const handleClickDelete = (e) => {
-    const eventValueText = e.target.textContent;
+  const handleClickDeleteOne = (value) => {
+    deleteOne(value);
   };
 
   return (
@@ -62,8 +54,8 @@ export const ListSearch = () => {
             >
               <span onClick={handleClick}>{value}</span>
               <span
-                onClick={(e) => {
-                  handleClickDeletedAll(e, value);
+                onClick={() => {
+                  handleClickDeleteOne(value);
                 }}
               >
                 x

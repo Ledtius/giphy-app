@@ -33,5 +33,20 @@ export const useStorage = (searchValue) => {
     }
   }, [searchValue]);
 
-  return { searchValueList, setSearchValueList };
+  const deleteAll = () => {
+    setSearchValueList([]);
+    localStorage.setItem("searchValueStList", JSON.stringify([]));
+  };
+
+  const deleteOne = (valueComponent) => {
+    const newValueList = searchValueList.filter(
+      ({ value }) => valueComponent !== value,
+    );
+    console.log({ newValueList });
+    setSearchValueList(newValueList);
+
+    localStorage.setItem("searchValueStList", JSON.stringify(newValueList));
+  };
+
+  return { searchValueList, setSearchValueList, deleteAll, deleteOne };
 };
