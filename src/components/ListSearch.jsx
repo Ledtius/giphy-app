@@ -62,18 +62,15 @@ export const ListSearch = () => {
                 </span>
                 <div className="w-6 hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all absolute top-2 right-1 cursor-pointer">
                   <svg
-                    onClick={() => {
-                      handleClickDeleteOne(value);
-                    }}
-                    className="w-4 stroke-black"
+                    onClick={() => handleClickDeleteOne(value)}
+                    className="w-4 stroke-black lucide lucide-x-icon lucide-x"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-x-icon lucide-x"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
