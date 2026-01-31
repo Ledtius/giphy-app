@@ -22,7 +22,7 @@ export const useStorage = (searchValue) => {
         { value: searchValue, id: crypto.randomUUID() },
       ]);
 
-      console.log("--creating/recreating localStorage--");
+      console.log("--creating/replacing localStorage--");
       localStorage.setItem(
         "searchValueStList",
         JSON.stringify([
@@ -34,17 +34,23 @@ export const useStorage = (searchValue) => {
   }, [searchValue]);
 
   const deleteAll = () => {
+    console.log("--useStorage deleteAll Function--");
+
+    console.log("--useStorage setSearchValueList--");
     setSearchValueList([]);
+    console.log("--creating/replacing localStorage--");
     localStorage.setItem("searchValueStList", JSON.stringify([]));
   };
 
   const deleteOne = (valueComponent) => {
+    console.log("--useStorage deleteAll Function--");
     const newValueList = searchValueList.filter(
       ({ value }) => valueComponent !== value,
     );
-    console.log({ newValueList });
+    console.log("--useStorage setSearchValueList--");
     setSearchValueList(newValueList);
 
+    console.log("--creating/replacing localStorage--");
     localStorage.setItem("searchValueStList", JSON.stringify(newValueList));
   };
 

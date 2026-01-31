@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 .input {
-  @apply border-2 p-2 rounded-sm;
+  @apply pl-10 rounded-sm border-1 focus:outline-none focus:border-blue-500 focus:shadow-xs focus:shadow-blue-500 transition-all w-full;
 }
 
 .search-btn {
-  @apply rounded-sm bg-blue-500 font-black p-2.5 cursor-pointer  scale-100 transition-all hover:scale-105;
+  @apply rounded-sm bg-blue-500 text-white pl-5 pr-5 pt-3 pb-3 font-medium cursor-pointer  scale-100 transition-all hover:scale-105;
 }

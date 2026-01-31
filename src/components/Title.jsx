@@ -6,7 +6,7 @@ export const Title = () => {
 
   return (
     <>
-      <h1 className="font-bold text-xl">Buscador de Gifs</h1>
+      <h1 className="font-bold text-3xl mb-5 text-gray-950">Buscador de Gifs</h1>
     </>
   );
 };

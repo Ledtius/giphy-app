@@ -21,7 +21,7 @@ export const useGiphy = () => {
 
   const [valueClicked, setValueClicked] = useState("");
 
-  console.log(valueClicked);
+  console.log({ valueClicked });
 
   return {
     searchValue,
