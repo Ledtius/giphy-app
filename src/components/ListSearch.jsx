@@ -41,12 +41,12 @@ export const ListSearch = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center mb-10">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <ul className="flex justify-center gap-3 flex-wrap h-10">
+        <ul className="flex justify-center gap-3 flex-wrap h-fit min-h-10">
           {searchValueList.map(({ value, id }) => {
             return (
               <li className={`rounded-2xl w-fit relative`} key={id}>
