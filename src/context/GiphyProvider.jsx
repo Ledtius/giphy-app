@@ -16,6 +16,8 @@ export const GiphyProvider = ({ children }) => {
     setValueClicked,
     deleteAll,
     deleteOne,
+    fetchActive,
+    setFetchActive,
   } = useGiphy();
 
   return (
@@ -33,6 +35,8 @@ export const GiphyProvider = ({ children }) => {
           setValueClicked,
           deleteAll,
           deleteOne,
+          fetchActive,
+          setFetchActive,
         }}
       >
         {children}

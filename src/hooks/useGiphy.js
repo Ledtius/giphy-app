@@ -23,6 +23,8 @@ export const useGiphy = () => {
 
   console.log({ valueClicked });
 
+  const [fetchActive, setFetchActive] = useState(false);
+
   return {
     searchValue,
     setSearchValue,
@@ -35,5 +37,7 @@ export const useGiphy = () => {
     setValueClicked,
     deleteAll,
     deleteOne,
+    fetchActive,
+    setFetchActive,
   };
 };

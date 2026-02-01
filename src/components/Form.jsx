@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 
 export const Form = () => {
@@ -22,6 +22,8 @@ export const Form = () => {
 
     setInputValue("");
   };
+
+
 
   return (
     <>
@@ -55,10 +57,7 @@ export const Form = () => {
             onChange={handleInput}
           />
 
-          <button
-            className="search-btn shadow-md"
-            onClick={handleClick}
-          >
+          <button className="search-btn shadow-md" onClick={handleClick}>
             Buscar
           </button>
         </section>
