@@ -18,8 +18,8 @@ function App() {
         <Title />
         <Form />
         <ListSearch />
+        <Loader />
         <List />
-        {/* <Loader /> */}
       </GiphyProvider>
     </>
   );

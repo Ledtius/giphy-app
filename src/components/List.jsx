@@ -20,7 +20,6 @@ export const List = () => {
               <img src={url} alt="gif" className="w-full rounded-md" />
             </li>
           ))}
-          <Loader></Loader>
         </ul>
       </div>
     </>
