@@ -24,7 +24,7 @@ export const GiphyFetch = () => {
       setTimeout(() => {
         setDataApi(data);
         setFetchActive(false);
-      }, 6000);
+      }, 1000);
     } catch (e) {
       console.error(`Fetch error: ${e}`);
       throw new error(e);

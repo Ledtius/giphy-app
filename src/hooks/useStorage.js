@@ -17,8 +17,15 @@ export const useStorage = (searchValue) => {
       console.log("**useEffect of useStorage by searchValue**");
 
       console.log("--useStorage setSearchValueList--");
+
+      const noRepeatSearchValueList = searchValueList.filter(
+        ({ value }) => value !== searchValue,
+      );
+
+      console.log({ noRepeatSearchValueList });
+
       setSearchValueList([
-        ...searchValueList,
+        ...noRepeatSearchValueList,
         { value: searchValue, id: crypto.randomUUID() },
       ]);
 
@@ -26,7 +33,7 @@ export const useStorage = (searchValue) => {
       localStorage.setItem(
         "searchValueStList",
         JSON.stringify([
-          ...searchValueList,
+          ...noRepeatSearchValueList,
           { value: searchValue, id: crypto.randomUUID() },
         ]),
       );
