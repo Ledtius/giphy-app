@@ -18,6 +18,8 @@ export const GiphyProvider = ({ children }) => {
     deleteOne,
     fetchActive,
     setFetchActive,
+    statusFetch,
+    setStatusFetch,
   } = useGiphy();
 
   return (
@@ -37,6 +39,8 @@ export const GiphyProvider = ({ children }) => {
           deleteOne,
           fetchActive,
           setFetchActive,
+          statusFetch,
+          setStatusFetch,
         }}
       >
         {children}

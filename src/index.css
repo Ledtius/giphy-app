@@ -7,3 +7,11 @@
 .search-btn {
   @apply rounded-sm bg-blue-500 text-white pl-5 pr-5 pt-3 pb-3 font-medium cursor-pointer  scale-100 transition-all hover:scale-105;
 }
+
+.imgs-container {
+  @apply w-full relative flex items-center flex-col text-center;
+}
+
+.imgs-speakers {
+  @apply w-60;
+}

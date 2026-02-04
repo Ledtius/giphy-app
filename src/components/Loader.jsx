@@ -1,5 +1,3 @@
-import error500 from "/src/assets/500-error.svg";
-import error400 from "/src/assets/404-error.svg";
 import { useContext, useEffect } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 
@@ -42,10 +40,6 @@ export const Loader = () => {
       ) : (
         <div className="w-20 h-20 mb-2"></div>
       )}
-
-      {/* <img src={error400} alt="2 sss32" /> */}
-
-      {/* <img src={error500} alt="2 sss32" /> */}
     </>
   );
 };

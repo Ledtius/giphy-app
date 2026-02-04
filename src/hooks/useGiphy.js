@@ -11,9 +11,15 @@ export const useGiphy = () => {
 
   let gifUrlIds = [];
 
-  if (Object.keys(dataApi).length) {
-    const { data } = dataApi;
-    gifUrlIds = GiphyUrls(data);
+  const [statusFetch, setStatusFetch] = useState(200);
+
+  console.log({ statusFetch });
+
+  if (statusFetch === 200) {
+    if (Object.keys(dataApi).length) {
+      const { data } = dataApi;
+      gifUrlIds = GiphyUrls(data);
+    }
   }
 
   const { searchValueList, setSearchValueList, deleteAll, deleteOne } =
@@ -24,6 +30,8 @@ export const useGiphy = () => {
   console.log({ valueClicked });
 
   const [fetchActive, setFetchActive] = useState(false);
+
+  console.log(statusFetch);
 
   return {
     searchValue,
@@ -39,5 +47,7 @@ export const useGiphy = () => {
     deleteOne,
     fetchActive,
     setFetchActive,
+    statusFetch,
+    setStatusFetch,
   };
 };
