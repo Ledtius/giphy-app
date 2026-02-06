@@ -50,11 +50,13 @@ export const ListSearch = () => {
           {searchValueList.map(({ value, id }) => {
             return (
               <li
-                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-30 cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white`}
+                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-30 cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white ${
+                  valueClicked === value ? "border-1 transition-all" : ""
+                }`}
                 key={id}
                 onClick={handleClick}
               >
-                <span className=" text-wrap max-w-80 overflow-x-clip">
+                <span className={`text-wrap max-w-80 overflow-x-clip `}>
                   {value}
                 </span>
                 {/* <span
