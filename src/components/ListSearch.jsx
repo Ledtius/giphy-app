@@ -46,12 +46,19 @@ export const ListSearch = () => {
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <ul className="flex justify-center gap-3 flex-wrap h-fit min-h-10">
+        <ul className="flex justify-center gap-5 flex-wrap">
           {searchValueList.map(({ value, id }) => {
             return (
-              <li className={`rounded-2xl w-fit relative`} key={id}>
-                <span
-                  className={`rounded-2xl pt-2 pb-2 pr-8 pl-2 bg-slate-200 w-fit cursor-pointer hover:bg-white flex gap-3.5 transition-all ${
+              <li
+                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-15 max-w-50  overflow-auto cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white`}
+                key={id}
+                onClick={handleClick}
+              >
+                <span className="max-w-20 overflow-auto text-wrap">
+                  {value}
+                </span>
+                {/* <span
+                  className={`rounded-2xl pt-2 pb-2 pr-14 pl-2 bg-slate-200 w-fit cursor-pointer  text-center hover:bg-white flex gap-3.5 transition-all ${
                     valueClicked === value
                       ? "border-1 transition-all"
                       : "text-black bg-red-400"
@@ -59,23 +66,22 @@ export const ListSearch = () => {
                   onClick={handleClick}
                 >
                   {value}
-                </span>
-                <div className="w-6 hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all absolute top-2 right-1 cursor-pointer">
-                  <svg
-                    onClick={() => handleClickDeleteOne(value)}
-                    className="w-4 stroke-black lucide lucide-x-icon lucide-x"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                  </svg>
-                </div>
+                </span> */}
+                <svg
+                  onClick={() => handleClickDeleteOne(value)}
+                  className="w-6 stroke-black hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all cursor-pointer lucide lucide-x-icon lucide-x"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+                {/* <div className="w-6 hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all absolute top-2 right-1 cursor-pointer"></div> */}
               </li>
             );
           })}
