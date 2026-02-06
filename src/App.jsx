@@ -8,8 +8,6 @@ import { GiphyProvider } from "./context/GiphyProvider";
 import { GiphyFetch } from "./services/GiphyFetch";
 import { Loader } from "./components/Loader";
 
-// import { GiphyStorage } from "./services/GiphyStorage";
-
 function App() {
   return (
     <>

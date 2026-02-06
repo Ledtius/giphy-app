@@ -41,7 +41,7 @@ export const ListSearch = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center mb-10">
+      <section className="flex flex-col items-center mb-10 md:max-w-md">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
@@ -50,11 +50,11 @@ export const ListSearch = () => {
           {searchValueList.map(({ value, id }) => {
             return (
               <li
-                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-15 max-w-50  overflow-auto cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white`}
+                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-30 cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white`}
                 key={id}
                 onClick={handleClick}
               >
-                <span className="max-w-20 overflow-auto text-wrap">
+                <span className=" text-wrap max-w-80 overflow-x-clip">
                   {value}
                 </span>
                 {/* <span

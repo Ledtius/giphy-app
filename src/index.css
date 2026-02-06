@@ -13,7 +13,7 @@
 }
 
 .imgs-speakers {
-  @apply w-60;
+  @apply w-90;
 }
 
 ::-webkit-scrollbar {

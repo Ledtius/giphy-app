@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { Loader } from "./Loader";
 import error500 from "/src/assets/500-error.svg";
-import error404 from "/src/assets/404-error.svg";
+// import error from "/src/assets/404-error.svg";
+import error from "/src/assets/bomb-9.png";
 
 import questionSearch from "/src/assets/question-search.svg";
 import searchStart from "/src/assets/search-start.svg";
@@ -62,15 +63,15 @@ export const List = () => {
       ) : statusFetch >= 400 && statusFetch < 500 ? (
         <>
           <div className="imgs-container">
-            <span>{statusFetch}</span>
-            <img src={error404} alt="error404" className="imgs-speakers" />
+            <img src={error} alt="error" className="imgs-speakers" />
+            <span className="font-bold">Error: {statusFetch}</span>
           </div>
         </>
       ) : (
         <>
           <div className="imgs-container">
-            <div>{statusFetch}</div>
             <img src={error500} alt="error500" className="imgs-speakers" />
+            <span className="font-bold">{statusFetch}</span>
           </div>
         </>
       )}
