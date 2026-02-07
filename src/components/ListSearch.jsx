@@ -41,17 +41,17 @@ export const ListSearch = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center mb-10 md:max-w-md">
+      <section className="flex flex-col items-center mb-10">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <ul className="flex justify-center gap-5 flex-wrap">
+        <ul className="flex justify-center gap-5 flex-wrap max-w-200 ms:w-md lg:w-200">
           {searchValueList.map(({ value, id }) => {
             return (
               <li
-                className={`rounded-2xl  flex items-center justify-center text-center w-fit max-h-30 cursor-pointer p-2 gap-2 bg-slate-200  hover:bg-white ${
-                  valueClicked === value ? "border-1 transition-all" : ""
+                className={`search-list-shape  element-shape  ${
+                  valueClicked === value ? "group search-list-hover" : ""
                 }`}
                 key={id}
                 onClick={handleClick}
@@ -70,8 +70,11 @@ export const ListSearch = () => {
                   {value}
                 </span> */}
                 <svg
-                  onClick={() => handleClickDeleteOne(value)}
-                  className="w-6 stroke-black hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all cursor-pointer lucide lucide-x-icon lucide-x"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleClickDeleteOne(value);
+                  }}
+                  className={`search-list-x lucide lucide-x-icon stroke-black lucide-x g roup-hover ${valueClicked === value ? "stroke-white group-hover:stroke-black" : ""} `}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
@@ -89,10 +92,7 @@ export const ListSearch = () => {
           })}
         </ul>
 
-        <button
-          className="rounded-md p-2 text-red-400 font-medium w-fit cursor-pointer hover:bg-red-100 transition-all mt-4"
-          onClick={handleClickDeletedAll}
-        >
+        <button className="search-list-delete" onClick={handleClickDeletedAll}>
           Vaciar historial
         </button>
       </section>

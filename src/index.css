@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 .input {
-  @apply pl-10 rounded-sm focus:outline-none focus:border-blue-500 focus:shadow-xs focus:shadow-blue-500 transition-all w-full;
+  @apply pl-10 focus:outline-none focus:border-blue-500 shadow-sm focus:shadow-xs focus:shadow-blue-500 transition-all w-full;
 }
 
 .search-btn {
-  @apply rounded-sm bg-blue-500 text-white pl-5 pr-5 pt-3 pb-3 font-medium cursor-pointer  scale-100 transition-all hover:scale-105;
+  @apply bg-blue-500 text-white pl-6 pr-6 pt-3 pb-3 font-medium cursor-pointer  scale-100 transition-all hover:scale-105;
 }
 
 .imgs-container {
@@ -14,6 +14,25 @@
 
 .imgs-speakers {
   @apply w-90;
+}
+
+.element-shape {
+  @apply rounded-4xl;
+}
+
+.search-list-shape {
+  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all;
+}
+.search-list-hover {
+  @apply bg-blue-400 text-white hover:text-black;
+}
+
+.search-list-x {
+  @apply w-6 hover:bg-slate-200 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all cursor-pointer;
+}
+
+.search-list-delete {
+  @apply rounded-md p-2 pr-4 pl-4 text-rose-400 font-medium w-fit cursor-pointer hover:bg-red-100 transition-all mt-4;
 }
 
 ::-webkit-scrollbar {

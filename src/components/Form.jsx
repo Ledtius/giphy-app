@@ -47,7 +47,7 @@ export const Form = () => {
           </svg>
 
           <input
-            className="input"
+            className="input element-shape"
             type="text"
             placeholder="Michael Jordan"
             id="search"
@@ -57,7 +57,7 @@ export const Form = () => {
             onChange={handleInput}
           />
 
-          <button className="search-btn shadow-md" onClick={handleClick}>
+          <button className="search-btn shadow-md element-shape" onClick={handleClick}>
             Buscar
           </button>
         </section>
