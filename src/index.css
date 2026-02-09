@@ -21,7 +21,7 @@
 }
 
 .search-list-shape {
-  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all;
+  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all h-10;
 }
 .search-list-hover {
   @apply bg-blue-400 text-white hover:text-black;
@@ -33,6 +33,10 @@
 
 .search-list-delete {
   @apply rounded-md p-2 pr-4 pl-4 text-rose-400 font-medium w-fit cursor-pointer hover:bg-red-100 transition-all mt-4;
+}
+
+.basic-alight {
+  @apply flex items-center justify-center flex-col;
 }
 
 ::-webkit-scrollbar {

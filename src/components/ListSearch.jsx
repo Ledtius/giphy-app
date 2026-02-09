@@ -1,10 +1,12 @@
 import { useContext, useEffect } from "react";
 
 import { GiphyContext } from "../context/GiphyContext";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export const ListSearch = () => {
   console.log("--ListSearch--");
 
+  const [parent] = useAutoAnimate();
   const {
     searchValueList,
     setValueClicked,
@@ -41,12 +43,16 @@ export const ListSearch = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center mb-10">
+      {/* {autoAnimate()} */}
+      <section className="flex flex-col items-center mb-10 w-ful">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <ul className="flex justify-center gap-5 flex-wrap max-w-200 ms:w-md lg:w-200">
+        <ul
+          className="flex justify-center items-center gap-5 mb-10 flex-wrap min-h-10 min-w-100 sm:min-w-200 max-w-300"
+          ref={parent}
+        >
           {searchValueList.map(({ value, id }) => {
             return (
               <li
