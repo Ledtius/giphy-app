@@ -10,8 +10,9 @@ export const Loader = () => {
       <AnimatePresence>
         {fetchActive ? (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, transform: "scale(4)", y: 5 }}
+            animate={{ opacity: 1, transform: "scale(1)", y: 0 }}
+            transition={{ duration: 1 }}
             exit={{ opacity: 1 }}
             className="w-20 h-20 mb-2"
           >
@@ -45,12 +46,7 @@ export const Loader = () => {
             </svg>
           </motion.div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, transform: "scale(4)" }}
-            animate={{ opacity: 1, transform: "scale(1)" }}
-            exit={{ opacity: 1 }}
-            className="w-20 h-20 mb-2"
-          ></motion.div>
+          <motion.div className="w-20 h-20 mb-2"></motion.div>
         )}
       </AnimatePresence>
     </>
