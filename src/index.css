@@ -5,7 +5,8 @@
 }
 
 .search-btn {
-  @apply bg-blue-500 text-white pl-6 pr-6 pt-3 pb-3 font-medium cursor-pointer  scale-100 transition-all hover:scale-105;
+  @apply bg-blue-500 text-white pl-6 pr-6 pt-3 pb-3 font-medium cursor-pointer;
+  /* scale-100 transition-all hover:scale-105; */
 }
 
 .imgs-container {
@@ -21,10 +22,10 @@
 }
 
 .search-list-shape {
-  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all h-10;
+  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all h-10 scale-100 transition-all;
 }
 .search-list-hover {
-  @apply bg-blue-400 text-white hover:text-black;
+  @apply bg-blue-400 text-white scale-110 hover:text-black transition-all;
 }
 
 .search-list-x {

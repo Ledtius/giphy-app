@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 
 import { GiphyContext } from "../context/GiphyContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { motion } from "motion/react";
 
 export const ListSearch = () => {
   console.log("--ListSearch--");
@@ -55,8 +56,8 @@ export const ListSearch = () => {
         >
           {searchValueList.map(({ value, id }) => {
             return (
-              <li
-                className={`search-list-shape  element-shape  ${
+              <motion.li
+                className={`search-list-shape  element-shape   ${
                   valueClicked === value ? "group search-list-hover" : ""
                 }`}
                 key={id}
@@ -65,16 +66,7 @@ export const ListSearch = () => {
                 <span className={`text-wrap max-w-80 overflow-x-clip `}>
                   {value}
                 </span>
-                {/* <span
-                  className={`rounded-2xl pt-2 pb-2 pr-14 pl-2 bg-slate-200 w-fit cursor-pointer  text-center hover:bg-white flex gap-3.5 transition-all ${
-                    valueClicked === value
-                      ? "border-1 transition-all"
-                      : "text-black bg-red-400"
-                  }`}
-                  onClick={handleClick}
-                >
-                  {value}
-                </span> */}
+
                 <svg
                   onClick={(e) => {
                     e.stopPropagation();
@@ -92,15 +84,26 @@ export const ListSearch = () => {
                   <path d="M18 6 6 18" />
                   <path d="m6 6 12 12" />
                 </svg>
-                {/* <div className="w-6 hover:bg-slate-400 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all absolute top-2 right-1 cursor-pointer"></div> */}
-              </li>
+              </motion.li>
             );
           })}
         </ul>
 
-        <button className="search-list-delete" onClick={handleClickDeletedAll}>
+        <motion.button
+          className="search-list-delete"
+          onClick={handleClickDeletedAll}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.6, y: 1 }}
+          whileFocus={{ backgroundColor: "red" }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 15,
+            duration: 0.4,
+          }}
+        >
           Vaciar historial
-        </button>
+        </motion.button>
       </section>
     </>
   );

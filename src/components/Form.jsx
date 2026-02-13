@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
+import { motion, spring } from "motion/react";
 
 export const Form = () => {
   console.log("--Form--");
@@ -22,8 +23,6 @@ export const Form = () => {
 
     setInputValue("");
   };
-
-
 
   return (
     <>
@@ -57,9 +56,15 @@ export const Form = () => {
             onChange={handleInput}
           />
 
-          <button className="search-btn shadow-md element-shape" onClick={handleClick}>
+          <motion.button
+            className="search-btn shadow-md element-shape"
+            onClick={handleClick}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.9, y: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          >
             Buscar
-          </button>
+          </motion.button>
         </section>
       </form>
     </>
