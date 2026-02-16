@@ -4,6 +4,7 @@ import { Loader } from "./Loader";
 import error500 from "/src/assets/500-error.svg";
 // import error from "/src/assets/404-error.svg";
 import error from "/src/assets/bomb-9.png";
+import noGif from "/src/assets/beach-12.png";
 
 import questionSearch from "/src/assets/question-search.svg";
 import searchStart from "/src/assets/search-start.svg";
@@ -68,11 +69,20 @@ export const List = () => {
         exit={{ opacity: 0 }}
         className="columns-2 sm:columns-3 md:columns-4 gap-4"
       >
-        {gifUrlIds.map(({ id, url }) => (
-          <li key={id}>
-            <img src={url} className="w-full rounded-md" />
-          </li>
-        ))}
+        {gifUrlIds.map(({ id, url }) => {
+          console.log(url);
+          return (
+            <li key={id}>
+              <img
+                src={url || noGif}
+                onError={(e) => {
+                  e.currentTarget.src = noGif;
+                }}
+                className="w-full rounded-md"
+              />
+            </li>
+          );
+        })}
       </motion.ul>
     );
   } else if (statusFetch >= 400 && statusFetch < 500) {
