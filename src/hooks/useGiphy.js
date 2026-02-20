@@ -23,7 +23,7 @@ export const useGiphy = () => {
   }
 
   const { searchValueList, setSearchValueList, deleteAll, deleteOne } =
-    useStorage(searchValue);
+    useStorage(searchValue, gifUrlIds);
 
   const [valueClicked, setValueClicked] = useState("");
 

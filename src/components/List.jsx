@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { GiphyContext } from "../context/GiphyContext";
-import { Loader } from "./Loader";
+
 import error500 from "/src/assets/500-error.svg";
-// import error from "/src/assets/404-error.svg";
+
 import error from "/src/assets/bomb-9.png";
 import noGif from "/src/assets/beach-12.png";
 
@@ -16,19 +16,15 @@ export const List = () => {
   console.log("--List--");
   const [parent] = useAutoAnimate();
   const {
-    gifUrlIds,
     gifUrlIdsStorage,
     statusFetch,
     searchValue,
     valueClicked,
+    searchValueList,
+    gifUrlIds
   } = useContext(GiphyContext);
-
+  // const { gifUrlIds } = searchValueList;
   console.log({ gifUrlIds });
-
-  /*   console.log("--List--");
-  console.log({ gifUrlIdsStorage }); */
-
-  /* flex w-full justify-center flex-wrap ms:flex-col gap-4 */
 
   let content;
 
@@ -38,9 +34,9 @@ export const List = () => {
         <img
           src={searchStart}
           key="start"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="imgs-speakers"
         />
       </motion.div>
@@ -50,9 +46,7 @@ export const List = () => {
       <motion.div
         className="basic-alight"
         key="empty"
-        initial={{
-          opacity: 0,
-        }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
@@ -70,7 +64,6 @@ export const List = () => {
         className="columns-2 sm:columns-3 md:columns-4 gap-4"
       >
         {gifUrlIds.map(({ id, url }) => {
-          console.log(url);
           return (
             <li key={id}>
               <img
@@ -90,9 +83,7 @@ export const List = () => {
       <motion.div
         className="basic-alight"
         key="error-4xx"
-        initial={{
-          opacity: 0,
-        }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
@@ -105,9 +96,7 @@ export const List = () => {
       <motion.div
         className="basic-alight"
         key="error-5xx"
-        initial={{
-          opacity: 0,
-        }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
