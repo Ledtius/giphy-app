@@ -4,9 +4,7 @@ import { GiphyContext } from "../context/GiphyContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { motion } from "motion/react";
 
-export const ListSearch = () => {
-  console.log("--ListSearch--");
-
+export const GifHistoryList = () => {
   const [parent] = useAutoAnimate();
   const {
     searchValueList,
@@ -19,18 +17,12 @@ export const ListSearch = () => {
 
   const handleClick = (e) => {
     const eventValueText = e.target.textContent;
-    console.log("--ListSearch setValueClicked --");
     setValueClicked(eventValueText);
   };
 
   useEffect(() => {
-    console.log("**useEffect of ListSearch**");
     if (searchValue) {
-      console.log("--ListSearch setValueClicked by searchValue--");
-
       setValueClicked("");
-
-      console.log(searchValue);
     }
   }, [searchValue]);
 

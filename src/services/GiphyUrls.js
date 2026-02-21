@@ -1,5 +1,4 @@
 export const GiphyUrls = (data) => {
-  console.log("__GifphyUrls__");
   let gifUrlIds = [];
 
   data?.forEach((gifObj) => {

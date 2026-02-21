@@ -1,8 +1,8 @@
 import "./App.css";
 import { Form } from "./components/Form";
 import { Title } from "./components/Title";
-import { List } from "./components/List";
-import { ListSearch } from "./components/ListSearch";
+import { GifList } from "./components/GifList";
+import { GifHistoryList } from "./components/GifHistoryList";
 
 import { GiphyProvider } from "./context/GiphyProvider";
 import { GiphyFetch } from "./services/GiphyFetch";
@@ -15,9 +15,9 @@ function App() {
         <GiphyFetch />
         <Title />
         <Form />
-        <ListSearch />
+        <GifHistoryList />
         <Loader />
-        <List />
+        <GifList />
       </GiphyProvider>
     </>
   );

@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
-import { motion, spring } from "motion/react";
+import { motion } from "motion/react";
 
 export const Form = () => {
-  console.log("--Form--");
-
   const { setSearchValue } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");
@@ -12,13 +10,10 @@ export const Form = () => {
   const handleInput = (input) => {
     const inputLV = input.target.value;
 
-    console.log("--Form-- setInputValue");
     setInputValue(inputLV);
   };
 
   const handleClick = () => {
-    console.log("--Form-- setSearchValue");
-
     setSearchValue(inputValue.trim());
 
     setInputValue("");

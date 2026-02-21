@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GiphyUrls } from "../services/GiphyUrls";
 import { useStorage } from "../hooks/useStorage";
 
 export const useGiphy = () => {
-  console.log("--useGiphy--");
-
   const [searchValue, setSearchValue] = useState("");
 
   const [dataApi, setDataApi] = useState({});
@@ -12,8 +10,6 @@ export const useGiphy = () => {
   let gifUrlIds = [];
 
   const [statusFetch, setStatusFetch] = useState(200);
-
-  console.log({ statusFetch });
 
   if (statusFetch === 200) {
     if (Object.keys(dataApi).length) {
@@ -27,11 +23,7 @@ export const useGiphy = () => {
 
   const [valueClicked, setValueClicked] = useState("");
 
-  console.log({ valueClicked });
-
   const [fetchActive, setFetchActive] = useState(false);
-
-  console.log(statusFetch);
 
   return {
     searchValue,
