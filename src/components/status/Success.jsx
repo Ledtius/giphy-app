@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
+import noGif from "../../assets/beach-12.png";
 
-export const Suscess = (gifUrlIds, containerAnimator, childrenAnimator) => {
+export const Success = (gifUrlIds, containerAnimator, childrenAnimator) => {
   return (
     <motion.ul
       key="results"

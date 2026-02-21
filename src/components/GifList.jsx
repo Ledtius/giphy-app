@@ -1,17 +1,13 @@
 import { useContext } from "react";
 import { GiphyContext } from "../context/GiphyContext";
-import error500 from "/src/assets/500-error.svg";
-import error from "/src/assets/bomb-9.png";
-import noGif from "/src/assets/beach-12.png";
 
-import questionSearch from "/src/assets/question-search.svg";
 import searchStart from "/src/assets/search-start.svg";
-
-import { Error4xx } from "./status/Error4xx";
 import { AnimatePresence, motion } from "motion/react";
-import { NotFound } from "./status/NotFound";
+
 import { Error5xx } from "./status/Error5xx";
-import { Suscess } from "./status/Suscess";
+import { Error4xx } from "./status/Error4xx";
+import { NotFound } from "./status/NotFound";
+import { Success } from "./status/Success";
 
 const containerAnimator = {
   hidden: { opacity: 0 },
@@ -45,7 +41,7 @@ export const GifList = () => {
   } else if (statusFetch === 200 && gifUrlIds.length === 0) {
     content = NotFound(containerAnimator, childrenAnimator);
   } else if (statusFetch === 200) {
-    content = Suscess(gifUrlIds, containerAnimator, childrenAnimator);
+    content = Success(gifUrlIds, containerAnimator, childrenAnimator);
   } else if (statusFetch >= 400 && statusFetch < 500) {
     content = Error4xx(containerAnimator, childrenAnimator, statusFetch);
   } else {
