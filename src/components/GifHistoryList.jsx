@@ -3,8 +3,10 @@ import { useContext, useEffect } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { motion } from "motion/react";
+import { animation } from "./animations";
 
 export const GifHistoryList = () => {
+  const { emptyHistoryBtnAnimator } = animation();
   const [parent] = useAutoAnimate();
   const {
     searchValueList,
@@ -36,7 +38,6 @@ export const GifHistoryList = () => {
 
   return (
     <>
-      {/* {autoAnimate()} */}
       <section className="flex flex-col items-center mb-10 w-ful">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
@@ -84,15 +85,11 @@ export const GifHistoryList = () => {
         <motion.button
           className="search-list-delete"
           onClick={handleClickDeletedAll}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.6, y: 1 }}
-          whileFocus={{ backgroundColor: "red" }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 15,
-            duration: 0.4,
-          }}
+          variants={emptyHistoryBtnAnimator}
+          whileHover="whileHover"
+          whileTap="whileTap"
+          whileFocus="whileFocus"
+          transition="transition"
         >
           Vaciar historial
         </motion.button>

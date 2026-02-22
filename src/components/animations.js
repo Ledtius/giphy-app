@@ -20,5 +20,29 @@ export const animation = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeIn" } },
   };
 
-  return { loaderAnimator, childrenAnimator, containerAnimator };
+  const emptyHistoryBtnAnimator = {
+    whileHover: { scale: 1.05, y: -2 },
+    whileTap: { scale: 0.6, y: 1 },
+    whileFocus: { backgroundColor: "red" },
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 15,
+      duration: 0.4,
+    },
+  };
+
+  const searchBtnAnimator = {
+    whileHover: { scale: 1.05, y: -2 },
+    whileTap: { scale: 0.9, y: 1 },
+    transition: { type: "spring", stiffness: 300, damping: 15 },
+  };
+
+  return {
+    loaderAnimator,
+    childrenAnimator,
+    containerAnimator,
+    searchBtnAnimator,
+    emptyHistoryBtnAnimator,
+  };
 };

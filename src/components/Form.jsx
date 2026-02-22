@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { motion } from "motion/react";
+import { animation } from "./animations";
 
 export const Form = () => {
+  const { searchBtnAnimator } = animation();
+
   const { setSearchValue } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");
@@ -54,9 +57,11 @@ export const Form = () => {
           <motion.button
             className="search-btn shadow-md element-shape"
             onClick={handleClick}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.9, y: 1 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            variants={searchBtnAnimator}
+            whileHover="whileHover"
+            whileTap="whileTap"
+            transition="transition"
+            damping="damping"
           >
             Buscar
           </motion.button>
