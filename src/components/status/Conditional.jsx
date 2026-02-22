@@ -3,6 +3,7 @@ import { Error4xx } from "./Error4xx";
 import { NotFound } from "./NotFound";
 import { Success } from "./Success";
 import { Start } from "./Start";
+import { animation } from "../animations";
 
 export const Conditional = (
   searchValue,
@@ -12,16 +13,9 @@ export const Conditional = (
 ) => {
   let content;
 
-  const containerAnimator = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 1 } },
-    out: { opacity: 0 },
-  };
+  const { childrenAnimator, containerAnimator } = animation();
 
-  const childrenAnimator = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeIn" } },
-  };
+  console.log("dsds" + childrenAnimator);
 
   if (!searchValue && !valueClicked) {
     content = Start(containerAnimator, childrenAnimator);
