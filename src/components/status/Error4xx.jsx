@@ -12,14 +12,14 @@ export const Error4xx = (containerAnimator, childrenAnimator, statusFetch) => {
       exit="out"
     >
       <motion.img
-        variants={ChildrenAnimationValue}
+        variants={childrenAnimator}
         initial="hidden"
         animate="visible"
         src={error4xx}
         className="imgs-speakers"
       />
       <motion.span
-        variants={ChildrenAnimationValue}
+        variants={childrenAnimator}
         initial="hidden"
         animate="visible"
         className="font-bold"
