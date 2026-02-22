@@ -43,7 +43,7 @@ export const GifHistoryList = () => {
         </h2>
 
         <ul
-          className="flex justify-center items-center gap-5 mb-10 flex-wrap min-h-10 min-w-100 sm:min-w-200 max-w-300"
+          className="flex justify-center items-center gap-5 mb-10 flex-wrap min-h-10 min-w-50 sm:min-w-150 max-w-300"
           ref={parent}
         >
           {searchValueList.map(({ value, id }) => {
