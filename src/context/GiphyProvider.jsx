@@ -19,6 +19,8 @@ export const GiphyProvider = ({ children }) => {
     setFetchActive,
     statusFetch,
     setStatusFetch,
+    searchObject,
+    setSearchObject,
   } = useGiphy();
 
   return (
@@ -40,6 +42,8 @@ export const GiphyProvider = ({ children }) => {
           setFetchActive,
           statusFetch,
           setStatusFetch,
+          searchObject,
+          setSearchObject,
         }}
       >
         {children}

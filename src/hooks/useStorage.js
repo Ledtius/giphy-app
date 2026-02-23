@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useStorage = (searchValue) => {
+export const useStorage = (searchValue, searchObject) => {
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });

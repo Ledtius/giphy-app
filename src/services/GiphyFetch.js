@@ -10,7 +10,10 @@ export const GiphyFetch = () => {
     valueClicked,
     setFetchActive,
     statusFetch,
+    searchObject,
+    setSearchObject,
     setStatusFetch,
+    gifUrlIds,
   } = useContext(GiphyContext);
   // Value por searchValue o el valor que se clickeo
   const queryApi = async (value) => {
@@ -32,6 +35,7 @@ export const GiphyFetch = () => {
         const data = await response.json();
 
         setTimeout(() => {
+          setSearchObject({ ...searchObject, response: gifUrlIds });
           setStatusFetch(status);
 
           setDataApi(data);
