@@ -1,6 +1,8 @@
+import { transform } from "motion";
+
 export const animation = () => {
   const loaderAnimator = {
-    hidden: { opacity: 0, transform: "scale(4)", y: 5 },
+    hidden: { opacity: 0, transform: "scale(0.4)", y: 5 },
     visible: {
       opacity: 1,
       transform: "scale(1)",
