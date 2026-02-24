@@ -1,4 +1,4 @@
-export const GiphyUrls = (data) => {
+export const GiphyUrls = ({ data }) => {
   let gifUrlIds = [];
 
   data?.forEach((gifObj) => {
