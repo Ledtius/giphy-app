@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 
-export const useStorage = (searchValue, searchObject) => {
+export const useStorage = (searchValue) => {
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });
 
-  const { value: valueSearchObject } = searchObject;
-
   useEffect(() => {
-    if (valueSearchObject) {
+    if (searchValue) {
+      const storageElement = { value: searchValue, id: crypto.randomUUID() };
+
       const noRepeatSearchValueList = searchValueList.filter(
-        ({ value }) => value !== valueSearchObject,
+        ({ value }) => value !== searchValue,
       );
       console.log(noRepeatSearchValueList);
-      setSearchValueList([...noRepeatSearchValueList, searchObject]);
+      setSearchValueList([...noRepeatSearchValueList, storageElement]);
 
       localStorage.setItem(
         "searchValueStList",
-        JSON.stringify([...noRepeatSearchValueList, searchObject]),
+        JSON.stringify([...noRepeatSearchValueList, storageElement]),
       );
     }
-  }, [searchObject]);
+  }, [searchValue]);
 
   const deleteAll = () => {
     setSearchValueList([]);

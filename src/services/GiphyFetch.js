@@ -51,6 +51,7 @@ export const GiphyFetch = () => {
     setTimeout(() => {
       setFetchActive(false);
     }, 1000);
+
     setFetchActive(true);
     queryApi(searchValue);
 
@@ -58,5 +59,5 @@ export const GiphyFetch = () => {
     if (valueClicked) {
       // queryApi(valueClicked);
     }
-  }, [searchValue]);
+  }, [searchValue, valueClicked]);
 };
