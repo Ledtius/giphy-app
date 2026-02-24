@@ -6,13 +6,26 @@ import { AnimatePresence } from "motion/react";
 import { Conditional } from "./status/Conditional";
 
 export const GifList = () => {
-  const { gifUrlIds, statusFetch, searchValue, valueClicked } =
-    useContext(GiphyContext);
-
+  const {
+    gifUrlIds,
+    statusFetch,
+    searchValue,
+    valueClicked,
+    searchObject,
+    searchValueList,
+  } = useContext(GiphyContext);
+  console.log(searchObject);
   return (
     <>
       <AnimatePresence>
-        {Conditional(searchValue, valueClicked, statusFetch, gifUrlIds)}
+        {Conditional(
+          searchValue,
+          valueClicked,
+          statusFetch,
+          gifUrlIds,
+          searchObject,
+          searchValueList,
+        )}
       </AnimatePresence>
     </>
   );

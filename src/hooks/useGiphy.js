@@ -18,14 +18,12 @@ export const useGiphy = () => {
   const [statusFetch, setStatusFetch] = useState(200);
 
   if (statusFetch === 200) {
-    console.log({ statusFetch });
     if (Object.keys(dataApi).length) {
       const { data } = dataApi;
       gifUrlIds = GiphyUrls(data);
     }
   }
 
-  console.log(searchObject);
   const { searchValueList, setSearchValueList, deleteAll, deleteOne } =
     useStorage(searchValue, searchObject);
 
