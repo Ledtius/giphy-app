@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { GiphyContext } from "../context/GiphyContext";
+import { GiphyUrls } from "./GiphyUrls";
 
 const APIKEY = import.meta.env.VITE_API_KEY;
 
@@ -34,13 +35,11 @@ export const GiphyFetch = () => {
       } else {
         const data = await response.json();
 
-        setTimeout(() => {
-          setSearchObject({ ...searchObject, response: gifUrlIds });
-          setStatusFetch(status);
+        setSearchObject({ ...searchObject, response: GiphyUrls(data) });
+        setStatusFetch(status);
 
-          setDataApi(data);
-          setFetchActive(false);
-        }, 0);
+        setDataApi(data);
+        setFetchActive(false);
       }
     } catch (e) {
       throw new Error(e);
@@ -48,14 +47,17 @@ export const GiphyFetch = () => {
   };
 
   useEffect(() => {
-    if (searchValue) {
+    if (!searchValue) return;
+
+    const timeout = setTimeout(() => {
       setFetchActive(true);
       queryApi(searchValue);
-    }
+    }, 500);
 
+    console.log("Fetchhhhh!!!")
     if (valueClicked) {
-      queryApi(valueClicked);
+      // queryApi(valueClicked);
     }
     // COndicional del  valor que se clickeo
-  }, [searchValue, valueClicked]);
+  }, [searchValue]);
 };
