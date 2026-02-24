@@ -5,26 +5,22 @@ export const useStorage = (searchValue, searchObject) => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });
 
-  useEffect(() => {
-    if (searchValue) {
-      const noRepeatSearchValueList = searchValueList.filter(
-        ({ value }) => value !== searchValue,
-      );
+  const { value: valueSearchObject } = searchObject;
 
-      setSearchValueList([
-        ...noRepeatSearchValueList,
-        { value: searchValue, id: crypto.randomUUID() },
-      ]);
+  useEffect(() => {
+    if (valueSearchObject) {
+      const noRepeatSearchValueList = searchValueList.filter(
+        ({ value }) => value !== valueSearchObject,
+      );
+      console.log(noRepeatSearchValueList);
+      setSearchValueList([...noRepeatSearchValueList, searchObject]);
 
       localStorage.setItem(
         "searchValueStList",
-        JSON.stringify([
-          ...noRepeatSearchValueList,
-          { value: searchValue, id: crypto.randomUUID() },
-        ]),
+        JSON.stringify([...noRepeatSearchValueList, searchObject]),
       );
     }
-  }, [searchValue]);
+  }, [searchObject]);
 
   const deleteAll = () => {
     setSearchValueList([]);
