@@ -6,7 +6,6 @@ import { animation } from "./animations";
 export const Loader = () => {
   const { fetchActive } = useContext(GiphyContext);
   const { loaderAnimator } = animation();
-
   return (
     <>
       <AnimatePresence>

@@ -13,19 +13,23 @@ export const GifList = () => {
     valueClicked,
     searchObject,
     searchValueList,
+    fetchActive,
+    setSearchValue,
   } = useContext(GiphyContext);
   console.log(searchObject);
   return (
     <>
       <AnimatePresence>
-        {Conditional(
+        {Conditional({
           searchValue,
           valueClicked,
           statusFetch,
           gifUrlIds,
           searchObject,
           searchValueList,
-        )}
+          fetchActive,
+          setSearchValue,
+        })}
       </AnimatePresence>
     </>
   );

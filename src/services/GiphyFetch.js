@@ -16,7 +16,7 @@ export const GiphyFetch = () => {
     setStatusFetch,
     gifUrlIds,
   } = useContext(GiphyContext);
-  // Value por searchValue o el valor que se clickeo
+
   const queryApi = async (value) => {
     try {
       const response = await fetch(
@@ -26,10 +26,7 @@ export const GiphyFetch = () => {
       let { status } = response;
 
       // status = 500;
-      if (status >= 400 && status < 500) {
-        setStatusFetch(status);
-        setFetchActive(false);
-      } else if (status >= 500) {
+      if ((status >= 400 && status < 500) || status >= 500) {
         setStatusFetch(status);
         setFetchActive(false);
       } else {
@@ -49,15 +46,17 @@ export const GiphyFetch = () => {
   useEffect(() => {
     if (!searchValue) return;
 
-    const timeout = setTimeout(() => {
-      setFetchActive(true);
-      queryApi(searchValue);
-    }, 500);
+    console.log({ searchValue });
 
-    console.log("Fetchhhhh!!!")
+    setTimeout(() => {
+      setFetchActive(false);
+    }, 1000);
+    setFetchActive(true);
+    queryApi(searchValue);
+
+    console.log("Fetchhhhh!!!");
     if (valueClicked) {
       // queryApi(valueClicked);
     }
-    // COndicional del  valor que se clickeo
   }, [searchValue]);
 };
