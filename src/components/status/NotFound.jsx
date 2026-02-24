@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import notFound from "../../assets/question-search.svg";
 
 export const NotFound = (containerAnimator, childrenAnimator) => {
-  console.log("Here");
   return (
     <motion.div
       className="basic-alight"
