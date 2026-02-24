@@ -16,7 +16,7 @@ export const GifList = () => {
     fetchActive,
     setSearchValue,
   } = useContext(GiphyContext);
-  console.log(searchObject);
+
   return (
     <>
       <AnimatePresence>

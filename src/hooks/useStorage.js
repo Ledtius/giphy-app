@@ -12,7 +12,7 @@ export const useStorage = (searchValue) => {
       const noRepeatSearchValueList = searchValueList.filter(
         ({ value }) => value !== searchValue,
       );
-      console.log(noRepeatSearchValueList);
+
       setSearchValueList([...noRepeatSearchValueList, storageElement]);
 
       localStorage.setItem(

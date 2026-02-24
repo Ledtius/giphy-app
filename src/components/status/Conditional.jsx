@@ -18,6 +18,8 @@ export const Conditional = ({
   let content;
 
   const { childrenAnimator, containerAnimator } = animation();
+  console.log(searchValue);
+  console.log({ gifUrlIds });
 
   if (!searchValue && !valueClicked) {
     content = Start(containerAnimator, childrenAnimator);

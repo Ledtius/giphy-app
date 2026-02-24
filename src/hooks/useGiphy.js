@@ -19,8 +19,7 @@ export const useGiphy = () => {
 
   if (statusFetch === 200) {
     if (Object.keys(dataApi).length) {
-      const { data } = dataApi;
-      gifUrlIds = GiphyUrls(data);
+      gifUrlIds = GiphyUrls(dataApi);
     }
   }
 

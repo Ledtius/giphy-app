@@ -32,7 +32,6 @@ export const GiphyFetch = () => {
       } else {
         const data = await response.json();
 
-        setSearchObject({ ...searchObject, response: GiphyUrls(data) });
         setStatusFetch(status);
 
         setDataApi(data);
@@ -44,20 +43,25 @@ export const GiphyFetch = () => {
   };
 
   useEffect(() => {
-    if (!searchValue) return;
+    if (searchValue) {
+      console.log({ searchValue });
 
-    console.log({ searchValue });
+      setTimeout(() => {
+        setFetchActive(false);
+      }, 1000);
 
-    setTimeout(() => {
-      setFetchActive(false);
-    }, 1000);
+      setFetchActive(true);
+      queryApi(searchValue);
+    }
 
-    setFetchActive(true);
-    queryApi(searchValue);
-
-    console.log("Fetchhhhh!!!");
     if (valueClicked) {
-      // queryApi(valueClicked);
+      setTimeout(() => {
+        setFetchActive(false);
+      }, 1000);
+
+      setFetchActive(true);
+
+      queryApi(valueClicked);
     }
   }, [searchValue, valueClicked]);
 };
