@@ -7,6 +7,7 @@ import { GifHistoryList } from "./components/GifHistoryList";
 import { GiphyProvider } from "./context/GiphyProvider";
 import { GiphyFetch } from "./components/GiphyFetch";
 import { Loader } from "./components/Loader";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <GifHistoryList />
         <Loader />
         <GifList />
+        <Footer />
       </GiphyProvider>
     </>
   );
