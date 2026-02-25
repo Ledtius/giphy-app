@@ -5,7 +5,7 @@ import { GifList } from "./components/GifList";
 import { GifHistoryList } from "./components/GifHistoryList";
 
 import { GiphyProvider } from "./context/GiphyProvider";
-import { GiphyFetch } from "./services/GiphyFetch";
+import { GiphyFetch } from "./components/GiphyFetch";
 import { Loader } from "./components/Loader";
 
 function App() {

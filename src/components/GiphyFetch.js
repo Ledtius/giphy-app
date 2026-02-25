@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { GiphyContext } from "../context/GiphyContext";
-import { GiphyUrls } from "./GiphyUrls";
 
 const APIKEY = import.meta.env.VITE_API_KEY;
 
