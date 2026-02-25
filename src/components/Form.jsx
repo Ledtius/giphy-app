@@ -6,8 +6,7 @@ import { animation } from "./animations";
 export const Form = () => {
   const { searchBtnAnimator } = animation();
 
-  const { setSearchValue, searchObject, setSearchObject } =
-    useContext(GiphyContext);
+  const { setSearchValue, setSearchObject } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -25,7 +24,7 @@ export const Form = () => {
       id: crypto.randomUUID(),
       response: [],
     });
-    
+
     setInputValue("");
   };
 

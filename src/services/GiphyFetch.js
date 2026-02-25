@@ -9,12 +9,8 @@ export const GiphyFetch = () => {
     searchValue,
     setDataApi,
     valueClicked,
-    setFetchActive,
-    statusFetch,
-    searchObject,
-    setSearchObject,
+    setFetchActive,s
     setStatusFetch,
-    gifUrlIds,
   } = useContext(GiphyContext);
 
   const queryApi = async (value) => {
@@ -42,26 +38,20 @@ export const GiphyFetch = () => {
     }
   };
 
+  function conditionToFetch(valueToFetch) {
+    if (valueToFetch) {
+      setTimeout(() => {
+        setFetchActive(false);
+      }, 1000);
+
+      setFetchActive(true);
+
+      queryApi(valueToFetch);
+    }
+  }
+
   useEffect(() => {
-    if (searchValue) {
-      console.log({ searchValue });
-
-      setTimeout(() => {
-        setFetchActive(false);
-      }, 1000);
-
-      setFetchActive(true);
-      queryApi(searchValue);
-    }
-
-    if (valueClicked) {
-      setTimeout(() => {
-        setFetchActive(false);
-      }, 1000);
-
-      setFetchActive(true);
-
-      queryApi(valueClicked);
-    }
+    conditionToFetch(searchValue);
+    conditionToFetch(valueClicked);
   }, [searchValue, valueClicked]);
 };

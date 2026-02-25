@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GiphyUrls } from "../services/GiphyUrls";
 import { useStorage } from "../hooks/useStorage";
 

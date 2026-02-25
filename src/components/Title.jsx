@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { GiphyContext } from "../context/GiphyContext";
-
 export const Title = () => {
   return (
     <>
