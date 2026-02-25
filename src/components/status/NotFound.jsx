@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import notFound from "../../assets/question-search.svg";
+import notFound from "../../assets/not-found.svg";
 
 export const NotFound = (containerAnimator, childrenAnimator) => {
   return (

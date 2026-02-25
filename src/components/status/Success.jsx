@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import noGif from "../../assets/beach-12.png";
+import noGif from "../../assets/no-gif.png";
 
 export const Success = (gifUrlIds, containerAnimator, childrenAnimator) => {
   return (

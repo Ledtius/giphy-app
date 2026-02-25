@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import error4xx from "/src/assets/404-error.svg";
+import error4xx from "/src/assets/4xx-error.svg";
 
 export const Error4xx = (containerAnimator, childrenAnimator, statusFetch) => {
   return (

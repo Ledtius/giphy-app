@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import searchStart from "../../assets/search-start.svg";
+import searchStart from "../../assets/start.svg";
 
 export const Start = (containerAnimator, childrenAnimator) => {
   return (
