@@ -9,7 +9,7 @@ export const GiphyFetch = () => {
     searchValue,
     setDataApi,
     valueClicked,
-    setFetchActive,s
+    setFetchActive,
     setStatusFetch,
   } = useContext(GiphyContext);
 
