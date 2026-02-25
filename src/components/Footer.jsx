@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="mt-10 ">
+    <footer className="mt-10 text-center ">
       <small className="">
         {" "}
         © 2026 -{" "}
