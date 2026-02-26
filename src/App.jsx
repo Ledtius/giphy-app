@@ -8,12 +8,13 @@ import { GiphyProvider } from "./context/GiphyProvider";
 import { GiphyFetch } from "./components/GiphyFetch";
 import { Loader } from "./components/Loader";
 import { Footer } from "./components/Footer";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { animations } from "./components/animations";
 
 function App() {
   const { containerAnimation } = animations();
   console.log(containerAnimation);
+
   return (
     <motion.div
       className="flex flex-col items-center"
