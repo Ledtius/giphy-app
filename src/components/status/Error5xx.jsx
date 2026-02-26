@@ -1,25 +1,29 @@
 import { motion } from "motion/react";
 import error5xx from "../../assets/5xx-error.svg";
 
-export const Error5xx = (containerAnimator, childrenAnimator, statusFetch) => {
+export const Error5xx = (
+  containerAnimation,
+  childrenAnimation,
+  statusFetch,
+) => {
   return (
     <motion.div
       className="basic-alight"
       key="error-5xx"
-      variants={containerAnimator}
+      variants={containerAnimation}
       initial="hidden"
       animate="visible"
       exit="out"
     >
       <motion.img
-        variants={childrenAnimator}
+        variants={childrenAnimation}
         initial="hidden"
         animate="visible"
         src={error5xx}
         className="imgs-speakers"
       />
       <motion.span
-        variants={childrenAnimator}
+        variants={childrenAnimation}
         initial="hidden"
         animate="visible"
         className="font-bold"

@@ -26,11 +26,12 @@ export const GiphyFetch = () => {
         setFetchActive(false);
       } else {
         const data = await response.json();
+        setTimeout(() => {
+          setStatusFetch(status);
 
-        setStatusFetch(status);
-
-        setDataApi(data);
-        setFetchActive(false);
+          setDataApi(data);
+          setFetchActive(false);
+        }, 5000);
       }
     } catch (e) {
       throw new Error(e);
@@ -41,7 +42,7 @@ export const GiphyFetch = () => {
     if (valueToFetch) {
       setTimeout(() => {
         setFetchActive(false);
-      }, 1000);
+      }, 5000);
 
       setFetchActive(true);
 

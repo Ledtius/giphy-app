@@ -1,25 +1,25 @@
 import { motion } from "motion/react";
 import notFound from "../../assets/not-found.svg";
 
-export const NotFound = (containerAnimator, childrenAnimator) => {
+export const NotFound = (containerAnimation, childrenAnimation) => {
   return (
     <motion.div
       className="basic-alight"
       key="empty"
-      variants={containerAnimator}
+      variants={containerAnimation}
       initial="hidden"
       animate="visible"
       exit="out"
     >
       <motion.img
-        variants={childrenAnimator}
+        variants={childrenAnimation}
         initial="hidden"
         animate="visible"
         src={notFound}
         className="imgs-speakers"
       />
       <motion.p
-        variants={childrenAnimator}
+        variants={childrenAnimation}
         initial="hidden"
         animate="visible"
         className="font-bold"

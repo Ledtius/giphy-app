@@ -3,10 +3,15 @@ import { useContext, useEffect } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { motion } from "motion/react";
-import { animation } from "./animations";
+import { animations } from "./animations";
 
 export const GifHistoryList = () => {
-  const { emptyHistoryBtnAnimator } = animation();
+  const {
+    emptyHistoryBtnAnimation,
+    componentsAnimation,
+    containerAnimation,
+    childrenAnimation,
+  } = animations();
   const [parent] = useAutoAnimate();
   const {
     searchValueList,
@@ -38,18 +43,25 @@ export const GifHistoryList = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center mb-10 w-ful">
+      <motion.section
+        variants={componentsAnimation}
+        key="gif-history"
+        className="flex flex-col items-center mb-10 w-ful"
+      >
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <ul
-          className="flex justify-center items-center gap-5 mb-10 flex-wrap min-h-10 min-w-50 sm:min-w-150 max-w-300"
-          ref={parent}
+        <motion.ul
+          className="flex justify-center items-center gap-5 flex-wrap min-h-10 min-w-50 sm:min-w-150 max-w-300"
+          initial="hidden"
+          animate="visible"
+          variants={containerAnimation}
         >
           {searchValueList.map(({ value, id }) => {
             return (
               <motion.li
+                variants={childrenAnimation}
                 className={`search-list-shape  element-shape   ${
                   valueClicked === value ? "group search-list-hover" : ""
                 }`}
@@ -80,12 +92,12 @@ export const GifHistoryList = () => {
               </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
 
         <motion.button
           className="search-list-delete"
           onClick={handleClickDeletedAll}
-          variants={emptyHistoryBtnAnimator}
+          variants={emptyHistoryBtnAnimation}
           whileHover="whileHover"
           whileTap="whileTap"
           whileFocus="whileFocus"
@@ -93,7 +105,7 @@ export const GifHistoryList = () => {
         >
           Vaciar historial
         </motion.button>
-      </section>
+      </motion.section>
     </>
   );
 };

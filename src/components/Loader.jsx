@@ -1,24 +1,28 @@
 import { useContext } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { AnimatePresence, motion } from "motion/react";
-import { animation } from "./animations";
+import { animations } from "./animations";
 
 export const Loader = () => {
   const { fetchActive } = useContext(GiphyContext);
-  const { loaderAnimator } = animation();
+  const { loaderAnimation } = animations();
   return (
     <>
       <AnimatePresence>
         {fetchActive ? (
           <motion.div
-            className="w-20 h-20 mb-2"
-            variants={loaderAnimator}
+            className="w-30 h-fit mb-2 flex items-center gap-2 "
+            variants={loaderAnimation}
             initial="hidden"
             animate="visible"
             exit="out"
           >
+            <motion.span className="font-semibold text-md">
+              Cargando...
+            </motion.span>
+
             <motion.svg
-              className="w-20"
+              className="w-5"
               fill="#2B8CF0FF"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +51,7 @@ export const Loader = () => {
             </motion.svg>
           </motion.div>
         ) : (
-          <motion.div className="w-20 h-20 mb-2"></motion.div>
+          <motion.div className="w-fit h-6 flex items-center gap-2 "></motion.div>
         )}
       </AnimatePresence>
     </>

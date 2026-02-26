@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { motion } from "motion/react";
-import { animation } from "./animations";
+import { animations } from "./animations";
 
 export const Form = () => {
-  const { searchBtnAnimator } = animation();
+  const { searchBtnAnimation, componentsAnimation } = animations();
 
   const { setSearchValue, setSearchObject } = useContext(GiphyContext);
 
@@ -30,7 +30,10 @@ export const Form = () => {
 
   return (
     <>
-      <form
+      <motion.form
+        variants={componentsAnimation}
+        key="form"
+        transition="transition"
         className="md:max-w-150 w-full flex flex-col items-center"
         onSubmit={(e) => e.preventDefault()}
       >
@@ -63,7 +66,7 @@ export const Form = () => {
           <motion.button
             className="search-btn shadow-md element-shape"
             onClick={handleClick}
-            variants={searchBtnAnimator}
+            variants={searchBtnAnimation}
             whileHover="whileHover"
             whileTap="whileTap"
             transition="transition"
@@ -72,7 +75,7 @@ export const Form = () => {
             Buscar
           </motion.button>
         </section>
-      </form>
+      </motion.form>
     </>
   );
 };

@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import noGif from "../../assets/no-gif.png";
 
-export const Success = (gifUrlIds, containerAnimator, childrenAnimator) => {
+export const Success = (gifUrlIds, containerAnimation, childrenAnimation) => {
   return (
     <motion.ul
       key="results"
-      variants={containerAnimator}
+      variants={containerAnimation}
       initial="hidden"
       animate="visible"
       exit="out"
@@ -13,7 +13,7 @@ export const Success = (gifUrlIds, containerAnimator, childrenAnimator) => {
     >
       {gifUrlIds.map(({ id, url }) => (
         <motion.li
-          variants={childrenAnimator}
+          variants={childrenAnimation}
           initial="hidden"
           animate="visible"
           key={id}

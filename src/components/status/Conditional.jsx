@@ -3,7 +3,7 @@ import { Error4xx } from "./Error4xx";
 import { NotFound } from "./NotFound";
 import { Success } from "./Success";
 import { Start } from "./Start";
-import { animation } from "../animations";
+import { animations } from "../animations";
 
 export const Conditional = ({
   searchValue,
@@ -13,18 +13,18 @@ export const Conditional = ({
 }) => {
   let content;
 
-  const { childrenAnimator, containerAnimator } = animation();
+  const { childrenAnimation, containerAnimator } = animations();
 
   if (!searchValue && !valueClicked) {
-    content = Start(containerAnimator, childrenAnimator);
+    content = Start(containerAnimator, childrenAnimation);
   } else if (statusFetch === 200 && gifUrlIds.length === 0) {
-    content = NotFound(containerAnimator, childrenAnimator);
+    content = NotFound(containerAnimator, childrenAnimation);
   } else if (statusFetch === 200 && gifUrlIds.length !== 0) {
-    content = Success(gifUrlIds, containerAnimator, childrenAnimator);
+    content = Success(gifUrlIds, containerAnimator, childrenAnimation);
   } else if (statusFetch >= 400 && statusFetch < 500) {
-    content = Error4xx(containerAnimator, childrenAnimator, statusFetch);
+    content = Error4xx(containerAnimator, childrenAnimation, statusFetch);
   } else {
-    content = Error5xx(containerAnimator, childrenAnimator, statusFetch);
+    content = Error5xx(containerAnimator, childrenAnimation, statusFetch);
   }
 
   return content;

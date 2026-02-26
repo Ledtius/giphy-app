@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import searchStart from "../../assets/start.svg";
 
-export const Start = (containerAnimator, childrenAnimator) => {
+export const Start = (containerAnimation, childrenAnimation) => {
   return (
     <motion.div
       className="basic-alight"
-      variants={containerAnimator}
+      variants={containerAnimation}
       initial="hidden"
       animate="visible"
       exit="out"
@@ -14,7 +14,7 @@ export const Start = (containerAnimator, childrenAnimator) => {
         className="imgs-speakers"
         src={searchStart}
         key="start"
-        variants={childrenAnimator}
+        variants={childrenAnimation}
         initial="hidden"
         animate="visible"
         exit="out"
