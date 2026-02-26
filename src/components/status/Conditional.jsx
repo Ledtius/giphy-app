@@ -4,7 +4,6 @@ import { NotFound } from "./NotFound";
 import { Success } from "./Success";
 import { Start } from "./Start";
 import { animations } from "../animations";
-import { motion, AnimatePresence } from "motion/react";
 
 export const Conditional = ({
   searchValue,
@@ -13,14 +12,15 @@ export const Conditional = ({
   gifUrlIds,
 }) => {
   let content;
-  console.log({ searchValue });
 
   const { childrenAnimation, containerAnimator } = animations();
 
   if (!searchValue && !valueClicked) {
     content = Start(containerAnimator, childrenAnimation);
   } else if (statusFetch === 200 && gifUrlIds.length === 0) {
-    content = NotFound(containerAnimator, childrenAnimation);
+    setTimeout(() => {
+      content = NotFound(containerAnimator, childrenAnimation);
+    }, 1000);
   } else if (statusFetch === 200 && gifUrlIds.length !== 0) {
     content = Success(
       gifUrlIds,
@@ -28,8 +28,6 @@ export const Conditional = ({
       childrenAnimation,
       valueClicked,
     );
-    //   <AnimatePresence mode="wait">
-    // </AnimatePresence>;
   } else if (statusFetch >= 400 && statusFetch < 500) {
     content = Error4xx(containerAnimator, childrenAnimation, statusFetch);
   } else {

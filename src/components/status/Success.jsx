@@ -8,8 +8,7 @@ export const Success = (
   childrenAnimation,
   valueClicked,
 ) => {
-  const { emptyHistoryBtnAnimation, componentsAnimation, listGifAnimation } =
-    animations();
+  const { componentsAnimation } = animations();
   return (
     <motion.ul
       initial={{ opacity: 0 }}
