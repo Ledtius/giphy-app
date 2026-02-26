@@ -20,7 +20,7 @@ export const GiphyFetch = () => {
 
       let { status } = response;
 
-      status = 500;
+      // status = 500;
       if ((status >= 400 && status < 500) || status >= 500) {
         setStatusFetch(status);
         setFetchActive(false);
