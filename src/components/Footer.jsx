@@ -1,6 +1,14 @@
+import { motion } from "motion/react";
+import { animations } from "./animations";
+
 export const Footer = () => {
+  const { componentsAnimation } = animations();
   return (
-    <footer className="mt-10 text-center ">
+    <motion.footer
+      variants={componentsAnimation}
+      key="footer"
+      className="mt-10 text-center "
+    >
       <small className="">
         {" "}
         © 2026 -{" "}
@@ -13,6 +21,6 @@ export const Footer = () => {
         </a>
         - Todos los Derechos Reservados
       </small>
-    </footer>
+    </motion.footer>
   );
 };

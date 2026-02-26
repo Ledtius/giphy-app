@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { Conditional } from "./status/Conditional";
 
+import { animations } from "./animations";
+
 export const GifList = () => {
+  const { componentsAnimation } = animations();
+
   const {
     gifUrlIds,
     statusFetch,
@@ -20,16 +24,18 @@ export const GifList = () => {
   return (
     <>
       <AnimatePresence>
-        {Conditional({
-          searchValue,
-          valueClicked,
-          statusFetch,
-          gifUrlIds,
-          searchObject,
-          searchValueList,
-          fetchActive,
-          setSearchValue,
-        })}
+        <motion.div variants={componentsAnimation} key="form">
+          {Conditional({
+            searchValue,
+            valueClicked,
+            statusFetch,
+            gifUrlIds,
+            searchObject,
+            searchValueList,
+            fetchActive,
+            setSearchValue,
+          })}
+        </motion.div>
       </AnimatePresence>
     </>
   );
