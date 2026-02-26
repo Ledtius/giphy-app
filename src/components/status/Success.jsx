@@ -1,23 +1,24 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import noGif from "../../assets/no-gif.png";
+import { animations } from "../animations";
 
-export const Success = (gifUrlIds, containerAnimation, childrenAnimation) => {
+export const Success = (
+  gifUrlIds,
+  containerAnimation,
+  childrenAnimation,
+  valueClicked,
+) => {
+  const { emptyHistoryBtnAnimation, componentsAnimation, listGifAnimation } =
+    animations();
   return (
     <motion.ul
-      key="results"
-      variants={containerAnimation}
-      initial="hidden"
-      animate="visible"
-      exit="out"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ staggerChildren: 2 }}
       className="columns-2 sm:columns-3 md:columns-4 gap-4"
     >
       {gifUrlIds.map(({ id, url }) => (
-        <motion.li
-          variants={childrenAnimation}
-          initial="hidden"
-          animate="visible"
-          key={id}
-        >
+        <motion.li variants={componentsAnimation} key={id}>
           <img
             src={url || noGif}
             onError={(e) => {

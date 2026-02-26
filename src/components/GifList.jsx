@@ -8,7 +8,8 @@ import { Conditional } from "./status/Conditional";
 import { animations } from "./animations";
 
 export const GifList = () => {
-  const { componentsAnimation } = animations();
+  const { componentsAnimation, containerAnimation, listGifAnimation } =
+    animations();
 
   const {
     gifUrlIds,
@@ -23,8 +24,12 @@ export const GifList = () => {
 
   return (
     <>
-      <AnimatePresence>
-        <motion.div variants={componentsAnimation} key="form">
+      <AnimatePresence mode="wait">
+        <motion.div
+          variants={listGifAnimation}
+          initial="hidden"
+          animate="visible"
+        >
           {Conditional({
             searchValue,
             valueClicked,

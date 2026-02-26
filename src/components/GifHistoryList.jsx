@@ -43,11 +43,7 @@ export const GifHistoryList = () => {
 
   return (
     <>
-      <motion.section
-        variants={componentsAnimation}
-        key="gif-history"
-        className="flex flex-col items-center mb-10 w-ful"
-      >
+      <motion.section className="flex flex-col items-center mb-10 w-ful">
         <h2 className="text-xm font-bold text-slate-400 mt-5 mb-5">
           HISTORIAL DE BÚSQUEDA
         </h2>
@@ -63,7 +59,7 @@ export const GifHistoryList = () => {
             {searchValueList.map(({ value, id }) => {
               return (
                 <motion.li
-                  variants={childrenAnimation}
+                  variants={containerAnimation}
                   className={`search-list-shape  element-shape   ${
                     valueClicked === value ? "group search-list-hover" : ""
                   }`}

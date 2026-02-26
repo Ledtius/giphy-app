@@ -20,7 +20,7 @@ export const GiphyFetch = () => {
 
       let { status } = response;
 
-      // status = 500;
+      status = 500;
       if ((status >= 400 && status < 500) || status >= 500) {
         setStatusFetch(status);
         setFetchActive(false);
@@ -31,7 +31,7 @@ export const GiphyFetch = () => {
 
           setDataApi(data);
           setFetchActive(false);
-        }, 5000);
+        }, 1000);
       }
     } catch (e) {
       throw new Error(e);
@@ -42,7 +42,7 @@ export const GiphyFetch = () => {
     if (valueToFetch) {
       setTimeout(() => {
         setFetchActive(false);
-      }, 5000);
+      }, 1000);
 
       setFetchActive(true);
 
