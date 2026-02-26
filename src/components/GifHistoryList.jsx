@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 
 import { GiphyContext } from "../context/GiphyContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { animations } from "./animations";
 
 export const GifHistoryList = () => {
@@ -52,48 +52,50 @@ export const GifHistoryList = () => {
           HISTORIAL DE BÚSQUEDA
         </h2>
 
-        <motion.ul
-          className="flex justify-center items-center gap-5 flex-wrap min-h-10 min-w-50 sm:min-w-150 max-w-300"
-          initial="hidden"
-          animate="visible"
-          variants={containerAnimation}
-        >
-          {searchValueList.map(({ value, id }) => {
-            return (
-              <motion.li
-                variants={childrenAnimation}
-                className={`search-list-shape  element-shape   ${
-                  valueClicked === value ? "group search-list-hover" : ""
-                }`}
-                key={id}
-                onClick={handleClick}
-              >
-                <span className={`text-wrap max-w-80 overflow-x-clip `}>
-                  {value}
-                </span>
-
-                <svg
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleClickDeleteOne(value);
-                  }}
-                  className={`search-list-x lucide lucide-x-icon stroke-black lucide-x g roup-hover ${valueClicked === value ? "stroke-white group-hover:stroke-black" : ""} `}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+        <AnimatePresence>
+          <motion.ul
+            className="flex justify-center items-center gap-5 flex-wrap min-h-10 min-w-50 sm:min-w-150 max-w-300"
+            initial="hidden"
+            animate="visible"
+            variants={containerAnimation}
+            ref={parent}
+          >
+            {searchValueList.map(({ value, id }) => {
+              return (
+                <motion.li
+                  variants={childrenAnimation}
+                  className={`search-list-shape  element-shape   ${
+                    valueClicked === value ? "group search-list-hover" : ""
+                  }`}
+                  key={id}
+                  onClick={handleClick}
                 >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
+                  <span className={`text-wrap max-w-80 overflow-x-clip `}>
+                    {value}
+                  </span>
 
+                  <svg
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleClickDeleteOne(value);
+                    }}
+                    className={`search-list-x lucide lucide-x-icon stroke-black lucide-x g roup-hover ${valueClicked === value ? "stroke-white group-hover:stroke-black" : ""} `}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+        </AnimatePresence>
         <motion.button
           className="search-list-delete"
           onClick={handleClickDeletedAll}
