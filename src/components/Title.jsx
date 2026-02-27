@@ -1,12 +1,17 @@
-import { useContext } from "react";
-import { GiphyContext } from "../context/GiphyContext";
-
+import { motion } from "motion/react";
+import { animations } from "./animations";
 export const Title = () => {
-  const { searchValue } = useContext(GiphyContext);
+  const { componentsAnimation } = animations();
 
   return (
     <>
-      <h1 className="font-bold text-3xl mb-5 text-gray-950">Buscador de Gifs</h1>
+      <motion.h1
+        variants={componentsAnimation}
+        key="title"
+        className="font-bold text-3xl mb-5 text-gray-950"
+      >
+        Buscador de Gifs
+      </motion.h1>
     </>
   );
 };

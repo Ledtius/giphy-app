@@ -1,5 +1,4 @@
-export const GiphyUrls = (data) => {
-  console.log("__GifphyUrls__");
+export const GiphyUrls = ({ data }) => {
   let gifUrlIds = [];
 
   data?.forEach((gifObj) => {
@@ -12,5 +11,6 @@ export const GiphyUrls = (data) => {
     gifUrlIds.push({ url, id });
   });
 
+  console.log({ gifUrlIds });
   return gifUrlIds;
 };

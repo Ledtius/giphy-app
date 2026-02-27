@@ -14,7 +14,7 @@
 }
 
 .imgs-speakers {
-  @apply w-90;
+  @apply w-70 h-70;
 }
 
 .element-shape {
@@ -37,7 +37,7 @@
 }
 
 .basic-alight {
-  @apply flex items-center justify-center flex-col;
+  @apply flex items-center justify-center flex-col text-center;
 }
 
 ::-webkit-scrollbar {

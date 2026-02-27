@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
 
+<<<<<<< HEAD
 export const useStorage = (searchValue, gifUrlIds) => {
   console.log("--useStorage--");
 
+=======
+export const useStorage = (searchValue) => {
+>>>>>>> refactor
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });
 
-  console.log({ searchValue, searchValueList });
-
   useEffect(() => {
-    console.log("**useEffect of useStorage**");
-    console.log({ searchValueList });
-
     if (searchValue) {
-      console.log("**useEffect of useStorage by searchValue**");
-
-      console.log("--useStorage setSearchValueList--");
+      const storageElement = { value: searchValue, id: crypto.randomUUID() };
 
       const noRepeatSearchValueList = searchValueList.filter(
         ({ value }) => value !== searchValue,
       );
 
-      console.log({ noRepeatSearchValueList });
+      setSearchValueList([...noRepeatSearchValueList, storageElement]);
 
+<<<<<<< HEAD
       setSearchValueList([
         ...noRepeatSearchValueList,
         { value: searchValue, id: crypto.randomUUID()},
@@ -36,28 +34,26 @@ export const useStorage = (searchValue, gifUrlIds) => {
           ...noRepeatSearchValueList,
           { value: searchValue, id: crypto.randomUUID()},
         ]),
+=======
+      localStorage.setItem(
+        "searchValueStList",
+        JSON.stringify([...noRepeatSearchValueList, storageElement]),
+>>>>>>> refactor
       );
     }
   }, [searchValue]);
 
   const deleteAll = () => {
-    console.log("--useStorage deleteAll Function--");
-
-    console.log("--useStorage setSearchValueList--");
     setSearchValueList([]);
-    console.log("--creating/replacing localStorage--");
     localStorage.setItem("searchValueStList", JSON.stringify([]));
   };
 
   const deleteOne = (valueComponent) => {
-    console.log("--useStorage deleteAll Function--");
     const newValueList = searchValueList.filter(
       ({ value }) => valueComponent !== value,
     );
-    console.log("--useStorage setSearchValueList--");
     setSearchValueList(newValueList);
 
-    console.log("--creating/replacing localStorage--");
     localStorage.setItem("searchValueStList", JSON.stringify(newValueList));
   };
 

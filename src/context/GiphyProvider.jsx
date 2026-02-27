@@ -3,7 +3,6 @@ import { GiphyContext } from "./GiphyContext";
 import { useGiphy } from "../hooks/useGiphy";
 
 export const GiphyProvider = ({ children }) => {
-  console.log("--GiphyProvider--");
   const {
     searchValue,
     setSearchValue,
@@ -20,6 +19,8 @@ export const GiphyProvider = ({ children }) => {
     setFetchActive,
     statusFetch,
     setStatusFetch,
+    searchObject,
+    setSearchObject,
   } = useGiphy();
 
   return (
@@ -41,6 +42,8 @@ export const GiphyProvider = ({ children }) => {
           setFetchActive,
           statusFetch,
           setStatusFetch,
+          searchObject,
+          setSearchObject,
         }}
       >
         {children}

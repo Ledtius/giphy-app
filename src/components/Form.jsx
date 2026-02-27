@@ -1,32 +1,39 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
-import { motion, spring } from "motion/react";
+import { motion } from "motion/react";
+import { animations } from "./animations";
 
 export const Form = () => {
-  console.log("--Form--");
+  const { searchBtnAnimation, componentsAnimation } = animations();
 
-  const { setSearchValue } = useContext(GiphyContext);
+  const { setSearchValue, setSearchObject } = useContext(GiphyContext);
 
   const [inputValue, setInputValue] = useState("");
 
   const handleInput = (input) => {
     const inputLV = input.target.value;
 
-    console.log("--Form-- setInputValue");
     setInputValue(inputLV);
   };
 
   const handleClick = () => {
-    console.log("--Form-- setSearchValue");
-
     setSearchValue(inputValue.trim());
+
+    setSearchObject({
+      value: inputValue.trim(),
+      id: crypto.randomUUID(),
+      response: [],
+    });
 
     setInputValue("");
   };
 
   return (
     <>
-      <form
+      <motion.form
+        variants={componentsAnimation}
+        key="form"
+        transition="transition"
         className="md:max-w-150 w-full flex flex-col items-center"
         onSubmit={(e) => e.preventDefault()}
       >
@@ -59,14 +66,16 @@ export const Form = () => {
           <motion.button
             className="search-btn shadow-md element-shape"
             onClick={handleClick}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.9, y: 1 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            variants={searchBtnAnimation}
+            whileHover="whileHover"
+            whileTap="whileTap"
+            transition="transition"
+            damping="damping"
           >
             Buscar
           </motion.button>
         </section>
-      </form>
+      </motion.form>
     </>
   );
 };
