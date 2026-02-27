@@ -18,9 +18,7 @@ export const Conditional = ({
   if (!searchValue && !valueClicked) {
     content = Start(containerAnimator, childrenAnimation);
   } else if (statusFetch === 200 && gifUrlIds.length === 0) {
-    setTimeout(() => {
-      content = NotFound(containerAnimator, childrenAnimation);
-    }, 1000);
+    content = NotFound(containerAnimator, childrenAnimation);
   } else if (statusFetch === 200 && gifUrlIds.length !== 0) {
     content = Success(
       gifUrlIds,
