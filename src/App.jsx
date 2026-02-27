@@ -10,6 +10,7 @@ import { Loader } from "./components/Loader";
 import { Footer } from "./components/Footer";
 import { motion } from "motion/react";
 import { animations } from "./components/animations";
+import { Header } from "./components/Header";
 
 function App() {
   const { containerAnimation } = animations();
@@ -31,7 +32,7 @@ function App() {
     >
       <GiphyProvider>
         <GiphyFetch />
-        <Title />
+        <Header />
         <Form />
         <GifHistoryList />
         <Loader />
