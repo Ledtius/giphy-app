@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import error5xx from "../../assets/5xx-error.svg";
 
-export const Error5xx = (
+export const Error5xx = ({
   containerAnimation,
   childrenAnimation,
-  statusFetch,
+  statusFetch,}
 ) => {
   return (
     <motion.div

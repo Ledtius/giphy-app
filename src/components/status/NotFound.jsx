@@ -2,13 +2,15 @@ import { motion } from "motion/react";
 import notFound from "../../assets/not-found.svg";
 import { useEffect, useState } from "react";
 
-export const NotFound = (containerAnimation, childrenAnimation) => {
+export const NotFound = ({ childrenAnimation }) => {
   const [wait, setWait] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setWait(true);
     }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
