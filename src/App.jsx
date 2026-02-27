@@ -13,7 +13,6 @@ import { animations } from "./components/animations";
 
 function App() {
   const { containerAnimation } = animations();
-  console.log(containerAnimation);
 
   return (
     <motion.div
