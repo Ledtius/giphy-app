@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 
-<<<<<<< HEAD
-export const useStorage = (searchValue, gifUrlIds) => {
-  console.log("--useStorage--");
-
-=======
 export const useStorage = (searchValue) => {
->>>>>>> refactor
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });
@@ -21,24 +15,9 @@ export const useStorage = (searchValue) => {
 
       setSearchValueList([...noRepeatSearchValueList, storageElement]);
 
-<<<<<<< HEAD
-      setSearchValueList([
-        ...noRepeatSearchValueList,
-        { value: searchValue, id: crypto.randomUUID()},
-      ]);
-
-      console.log("--creating/replacing localStorage--");
-      localStorage.setItem(
-        "searchValueStList",
-        JSON.stringify([
-          ...noRepeatSearchValueList,
-          { value: searchValue, id: crypto.randomUUID()},
-        ]),
-=======
       localStorage.setItem(
         "searchValueStList",
         JSON.stringify([...noRepeatSearchValueList, storageElement]),
->>>>>>> refactor
       );
     }
   }, [searchValue]);
