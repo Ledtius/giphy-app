@@ -31,7 +31,7 @@ export const GiphyFetch = () => {
 
           setDataApi(data);
           setFetchActive(false);
-        }, 1000);
+        }, 500);
       }
     } catch (e) {
       throw new Error(e);
@@ -42,7 +42,7 @@ export const GiphyFetch = () => {
     if (valueToFetch) {
       setTimeout(() => {
         setFetchActive(false);
-      }, 1000);
+      }, 500);
 
       setFetchActive(true);
 
