@@ -34,7 +34,7 @@ export const UpArrow = () => {
       className={
         scrollValue
           ? `bg-blue-500 w-fit p-2 rounded-full cursor-pointer fixed bottom-5 right-5 animate-bounce opacity-100 scale-100 transition-all `
-          : `transition-all opacity-0 scale-0 pointer-none`
+          : `transition-all opacity-0 scale-0 pointer-none bottom-5 right-5 fixed`
       }
       onClick={handlerClick}
     >
