@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import error4xx from "/src/assets/4xx-error.svg";
 
-export const Error4xx = (
+export const Error4xx = ({
   containerAnimation,
   childrenAnimation,
   statusFetch,
-) => {
+}) => {
   return (
     <motion.div
       className="basic-alight"

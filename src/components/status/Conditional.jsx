@@ -16,20 +16,44 @@ export const Conditional = ({
   const { childrenAnimation, containerAnimator } = animations();
 
   if (!searchValue && !valueClicked) {
-    content = Start(containerAnimator, childrenAnimation);
+    content = (
+      <Start
+        containerAnimator={containerAnimator}
+        childrenAnimation={childrenAnimation}
+      />
+    );
   } else if (statusFetch === 200 && gifUrlIds.length === 0) {
-    content = NotFound(containerAnimator, childrenAnimation);
+    content = (
+      <NotFound
+        containerAnimator={containerAnimator}
+        childrenAnimation={childrenAnimation}
+      />
+    );
   } else if (statusFetch === 200 && gifUrlIds.length !== 0) {
-    content = Success(
-      gifUrlIds,
-      containerAnimator,
-      childrenAnimation,
-      valueClicked,
+    content = (
+      <Success
+        gifUrlIds={gifUrlIds}
+        containerAnimator={containerAnimator}
+        childrenAnimation={childrenAnimation}
+        valueClicked={valueClicked}
+      />
     );
   } else if (statusFetch >= 400 && statusFetch < 500) {
-    content = Error4xx(containerAnimator, childrenAnimation, statusFetch);
+    content = (
+      <Error4xx
+        containerAnimator={containerAnimator}
+        childrenAnimation={childrenAnimation}
+        statusFetch={statusFetch}
+      />
+    );
   } else {
-    content = Error5xx(containerAnimator, childrenAnimation, statusFetch);
+    content = (
+      <Error5xx
+        containerAnimator={containerAnimator}
+        childrenAnimation={childrenAnimation}
+        statusFetch={statusFetch}
+      />
+    );
   }
 
   return content;

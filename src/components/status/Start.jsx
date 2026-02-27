@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import searchStart from "../../assets/start.svg";
 
-export const Start = (containerAnimation, childrenAnimation) => {
+export const Start = ({ containerAnimation, childrenAnimation }) => {
   return (
     <motion.div
       className="basic-alight"
