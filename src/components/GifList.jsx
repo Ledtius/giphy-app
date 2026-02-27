@@ -30,16 +30,12 @@ export const GifList = () => {
         animate="visible"
         className="relative min-h-60"
       >
-        {Conditional({
-          searchValue,
-          valueClicked,
-          statusFetch,
-          gifUrlIds,
-          searchObject,
-          searchValueList,
-          fetchActive,
-          setSearchValue,
-        })}
+        <Conditional
+          searchValue={searchValue}
+          valueClicked={valueClicked}
+          statusFetch={statusFetch}
+          gifUrlIds={gifUrlIds}
+        />
         <UpArrow />
       </motion.div>
     </>
