@@ -8,7 +8,7 @@ export const Title = () => {
       <motion.h1
         variants={componentsAnimation}
         key="title"
-        className="font-bold text-3xl mb-5 text-gray-950"
+        className="font-bold text-3xl mb-5 text-gray-950 md:left-10 relative"
       >
         Buscador de Gifs
       </motion.h1>
