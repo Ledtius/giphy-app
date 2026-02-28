@@ -1,7 +1,7 @@
 export const Toggle = () => {
   return (
     <>
-      <div className="w-fit flex items-center gap-2 relative">
+      <div className="w-fit flex items-center gap-2 relative left-0 sm:left-45 md:left-100 mb-5">
         <input
           className="hidden peer"
           type="checkbox"
