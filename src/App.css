@@ -3,9 +3,11 @@
   flex-direction: column;
   align-items: center;
   min-width: 320px;
-  padding: 2rem;
+  /* padding: 2rem; */
   justify-content: space-between;
   gap: 1px;
+
+  background-color: aqua;
 
   font-family: "Inter", sans-serif;
 }

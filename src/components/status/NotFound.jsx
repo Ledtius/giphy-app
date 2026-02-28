@@ -34,7 +34,7 @@ export const NotFound = ({ childrenAnimation }) => {
             variants={childrenAnimation}
             initial="hidden"
             animate="visible"
-            className="font-bold"
+            className="font-bold dark:text-slate-300"
           >
             Oops! Aqui no hay nada parecido.
           </motion.p>

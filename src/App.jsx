@@ -15,7 +15,7 @@ function App() {
 
   return (
     <motion.div
-      className="flex flex-col items-center w-full h-full dark:bg-slate-900"
+      className="flex flex-col items-center w-screen h-screen sm:h-fit dark:dark:bg-slate-900 p-8 bg-white"
       key="-4xx"
       id="principal"
       variants={containerAnimation}

@@ -60,7 +60,7 @@ export const GifHistoryList = () => {
               return (
                 <motion.li
                   variants={containerAnimation}
-                  className={`search-list-shape  element-shape   ${
+                  className={`search-list-shape  element-shape  ${
                     valueClicked === value ? "group search-list-hover" : ""
                   }`}
                   key={id}

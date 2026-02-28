@@ -2,11 +2,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 .input {
-  @apply pl-10 focus:outline-none focus:border-blue-500 shadow-sm focus:shadow-xs focus:shadow-blue-500 transition-all w-full;
+  @apply pl-10 focus:outline-none focus:border-blue-500 shadow-sm focus:shadow-xs focus:shadow-blue-500 transition-all w-full dark:text-slate-100 
+  dark:bg-slate-800 dark:placeholder:text-slate-400 dark:border-slate-700 dark:focus:border-blue-400;
 }
 
 .search-btn {
-  @apply bg-blue-500 text-white pl-6 pr-6 pt-3 pb-3 font-medium cursor-pointer;
+  @apply bg-blue-500 text-white pl-6 pr-6 pt-3 pb-3 font-medium cursor-pointer dark:bg-blue-600;
   /* scale-100 transition-all hover:scale-105; */
 }
 
@@ -23,18 +24,20 @@
 }
 
 .search-list-shape {
-  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all h-10 scale-100 transition-all;
+  @apply w-fit max-h-30 p-2 pl-4 bg-white border-1 border-gray-100 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-100 transition-all h-10 scale-100 transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700;
 }
 .search-list-hover {
-  @apply bg-blue-400 text-white scale-110 hover:text-black transition-all;
+  @apply bg-blue-400 dark:bg-blue-600
+
+ text-white scale-110 hover:text-black transition-all dark:hover:text-slate-100;
 }
 
 .search-list-x {
-  @apply w-6 hover:bg-slate-200 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all cursor-pointer;
+  @apply w-6 hover:bg-slate-200 pt-1 pb-1 pl-1 pr-1 rounded-2xl transition-all cursor-pointer dark:stroke-slate-300 dark:hover:stroke-slate-700;
 }
 
 .search-list-delete {
-  @apply rounded-md p-2 pr-4 pl-4 text-rose-400 font-medium w-fit cursor-pointer hover:bg-red-100 transition-all mt-4;
+  @apply rounded-md p-2 pr-4 pl-4 text-rose-400 font-medium w-fit cursor-pointer border-1 border-rose-400 hover:bg-red-100 transition-all mt-4 dark:text-rose-300 dark:hover:bg-rose-900/30 dark:border-rose-800;
 }
 
 .basic-alight {

@@ -33,7 +33,7 @@ export const UpArrow = () => {
     <div
       className={
         scrollValue
-          ? `bg-blue-500 w-fit p-2 rounded-full cursor-pointer fixed bottom-5 right-5 animate-bounce opacity-100 scale-100 transition-all `
+          ? `bg-blue-500 w-fit p-2 rounded-full cursor-pointer fixed bottom-5 right-5 animate-bounce opacity-100 scale-100 transition-all shadow-blue-500/30  dark:bg-blue-600 dark:hover:bg-blue-500 dark:shadow-lg dark:shadow-blue-900/30 `
           : `transition-all opacity-0 scale-0 pointer-none bottom-5 right-5 fixed`
       }
       onClick={handlerClick}

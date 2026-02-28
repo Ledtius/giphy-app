@@ -26,7 +26,7 @@ export const Error5xx = ({
         variants={childrenAnimation}
         initial="hidden"
         animate="visible"
-        className="font-bold"
+        className="font-bold dark:text-slate-300"
       >
         Error: {statusFetch}
       </motion.span>
