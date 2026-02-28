@@ -1,4 +1,17 @@
+import { useContext, useEffect } from "react";
+import { DarkModeContext } from "../context/DarkModeContext";
+
 export const Toggle = () => {
+  const { theme, toggleTheme } = useContext(DarkModeContext);
+
+  const rootElement = document.getElementById("root");
+
+  useEffect(() => {
+    theme === "dark"
+      ? (rootElement.style = "background-color:#0f172a")
+      : (rootElement.style = "background-color:#fff");
+  }, [theme]);
+
   return (
     <>
       <div className="w-fit flex items-center gap-2 relative left-0 sm:left-45 md:left-100 mb-5">
@@ -7,6 +20,7 @@ export const Toggle = () => {
           type="checkbox"
           id="check"
           htmlFor="icon"
+          onChange={toggleTheme}
         />
         <label
           htmlFor="check"
