@@ -28,7 +28,7 @@ export const GifList = () => {
         variants={listGifAnimation}
         initial="hidden"
         animate="visible"
-        className="relative min-h-60"
+        className="relative min-h-60 h-fit w-fit"
       >
         <Conditional
           searchValue={searchValue}
