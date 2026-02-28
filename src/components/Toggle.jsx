@@ -7,9 +7,14 @@ export const Toggle = () => {
   const rootElement = document.getElementById("root");
 
   useEffect(() => {
-    theme === "dark"
-      ? (rootElement.style = "background-color:#0f172a")
-      : (rootElement.style = "background-color:#fff");
+    if (theme === "dark") {
+      //   rootElement.style = "background-color:#0f172a";
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      //   rootElement.style = "background-color:#fff";
+    }
+    console.log("Theme actual:", theme);
   }, [theme]);
 
   return (

@@ -11,6 +11,5 @@ export const GiphyUrls = ({ data }) => {
     gifUrlIds.push({ url, id });
   });
 
-  
   return gifUrlIds;
 };
