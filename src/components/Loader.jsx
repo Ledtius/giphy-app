@@ -17,12 +17,12 @@ export const Loader = () => {
             animate="visible"
             exit="out"
           >
-            <motion.span className="font-semibold text-md">
+            <motion.span className="font-semibold text-md dark:text-slate-300">
               Cargando...
             </motion.span>
 
             <motion.svg
-              className="w-5"
+              className="w-5 dark:stroke-blue-600"
               fill="#2B8CF0FF"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
