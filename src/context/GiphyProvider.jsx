@@ -21,6 +21,10 @@ export const GiphyProvider = ({ children }) => {
     setStatusFetch,
     searchObject,
     setSearchObject,
+    clickedPaginationItem,
+    setClickedPaginationItem,
+    paginationValue,
+    setPaginationValue,
   } = useGiphy();
 
   return (
@@ -44,6 +48,10 @@ export const GiphyProvider = ({ children }) => {
           setStatusFetch,
           searchObject,
           setSearchObject,
+          clickedPaginationItem,
+          setClickedPaginationItem,
+          paginationValue,
+          setPaginationValue,
         }}
       >
         {children}

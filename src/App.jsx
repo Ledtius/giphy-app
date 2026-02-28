@@ -10,12 +10,13 @@ import { motion } from "motion/react";
 import { animations } from "./components/animations";
 import { Header } from "./components/Header";
 import { DarModeProvider } from "./context/DarkModeContext";
+import { Pagination } from "./components/Pagination";
 function App() {
   const { containerAnimation } = animations();
 
   return (
     <motion.div
-      className="flex flex-col items-center w-screen h-screen sm:h-fit dark:dark:bg-slate-900 p-8 bg-white"
+      className="flex flex-col items-center w-screen h-screen sm:h-fit dark:dark:bg-slate-900 p-8 bg-white min-w-80"
       key="-4xx"
       id="principal"
       variants={containerAnimation}
@@ -37,6 +38,7 @@ function App() {
           <GifHistoryList />
           <Loader />
           <GifList />
+          <Pagination />
           <Footer />
         </DarModeProvider>
       </GiphyProvider>

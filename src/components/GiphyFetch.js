@@ -10,12 +10,18 @@ export const GiphyFetch = () => {
     valueClicked,
     setFetchActive,
     setStatusFetch,
+    clickedPaginationItem,
+    paginationValue,
   } = useContext(GiphyContext);
 
+  console.log(paginationValue);
+
+  const { limit, offset } = paginationValue;
+  console.log(limit, offset);
   const queryApi = async (value) => {
     try {
       const response = await fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${value}`,
+        `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${value}&limit=${limit}&offset=${offset}`,
       );
 
       let { status } = response;
@@ -53,5 +59,5 @@ export const GiphyFetch = () => {
   useEffect(() => {
     conditionToFetch(searchValue);
     conditionToFetch(valueClicked);
-  }, [searchValue, valueClicked]);
+  }, [searchValue, valueClicked, clickedPaginationItem]);
 };

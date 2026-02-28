@@ -30,6 +30,13 @@ export const useGiphy = () => {
 
   const [fetchActive, setFetchActive] = useState(false);
 
+  const [clickedPaginationItem, setClickedPaginationItem] = useState(1);
+
+  const [paginationValue, setPaginationValue] = useState({
+    limit: 10,
+    offset: 0,
+  });
+
   return {
     searchValue,
     setSearchValue,
@@ -47,6 +54,9 @@ export const useGiphy = () => {
     statusFetch,
     setStatusFetch,
     searchObject,
-    setSearchObject,
+    clickedPaginationItem,
+    setClickedPaginationItem,
+    paginationValue,
+    setPaginationValue,
   };
 };

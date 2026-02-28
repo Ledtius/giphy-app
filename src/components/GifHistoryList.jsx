@@ -75,7 +75,7 @@ export const GifHistoryList = () => {
                       e.stopPropagation();
                       handleClickDeleteOne(value);
                     }}
-                    className={`search-list-x lucide lucide-x-icon stroke-black lucide-x g roup-hover ${valueClicked === value ? "stroke-white group-hover:stroke-black" : ""} `}
+                    className={`search-list-x lucide lucide-x-icon stroke-black lucide-x group-hover ${valueClicked === value ? "stroke-white group-hover:stroke-black" : ""} `}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
