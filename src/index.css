@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .input {
   @apply pl-10 focus:outline-none focus:border-blue-500 shadow-sm focus:shadow-xs focus:shadow-blue-500 transition-all w-full;
