@@ -1,9 +1,7 @@
 import "./App.css";
 import { Form } from "./components/Form";
-import { Title } from "./components/Title";
 import { GifList } from "./components/GifList";
 import { GifHistoryList } from "./components/GifHistoryList";
-
 import { GiphyProvider } from "./context/GiphyProvider";
 import { GiphyFetch } from "./components/GiphyFetch";
 import { Loader } from "./components/Loader";
@@ -11,13 +9,13 @@ import { Footer } from "./components/Footer";
 import { motion } from "motion/react";
 import { animations } from "./components/animations";
 import { Header } from "./components/Header";
-
+import { DarModeProvider } from "./context/DarkModeContext";
 function App() {
   const { containerAnimation } = animations();
 
   return (
     <motion.div
-      className="flex flex-col items-center"
+      className="flex flex-col items-center w-full h-full"
       key="-4xx"
       variants={containerAnimation}
       initial="hidden"
@@ -31,13 +29,15 @@ function App() {
       exit="out"
     >
       <GiphyProvider>
-        <GiphyFetch />
-        <Header />
-        <Form />
-        <GifHistoryList />
-        <Loader />
-        <GifList />
-        <Footer />
+        <DarModeProvider>
+          <GiphyFetch />
+          <Header />
+          <Form />
+          <GifHistoryList />
+          <Loader />
+          <GifList />
+          <Footer />
+        </DarModeProvider>
       </GiphyProvider>
     </motion.div>
   );
