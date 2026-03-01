@@ -8,12 +8,31 @@ export const Pagination = () => {
     setClickedPaginationItem,
     paginationValue,
     setPaginationValue,
+    gifUrlIds
+    
   } = useContext(GiphyContext);
 
+ console.log(gifUrlIds)
   const handleClick = (e) => {
     const valueClicked = Number(e.target.textContent);
 
     setClickedPaginationItem(valueClicked);
+  };
+
+  const handleClickArrowRight = () => {
+    setClickedPaginationItem((prev) => {
+      console.log(prev);
+      if (prev < 5) return prev + 1;
+      else return prev;
+    });
+  };
+
+  const handleClickArrowLeft = () => {
+    setClickedPaginationItem((prev) => {
+      console.log(prev);
+      if (prev > 1) return prev - 1;
+      else return prev;
+    });
   };
 
   useEffect(() => {
@@ -36,6 +55,7 @@ export const Pagination = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lucide lucide-chevron-left-icon lucide-chevron-left"
+          onClick={handleClickArrowLeft}
         >
           <path d="m15 18-6-6 6-6" />
         </svg>
@@ -67,6 +87,7 @@ export const Pagination = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lucide lucide-chevron-right-icon lucide-chevron-right"
+          onClick={handleClickArrowRight}
         >
           <path d="m9 18 6-6-6-6" />
         </svg>
