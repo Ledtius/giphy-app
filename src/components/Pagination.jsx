@@ -8,20 +8,28 @@ export const Pagination = () => {
     setClickedPaginationItem,
     paginationValue,
     setPaginationValue,
-    gifUrlIds
-    
+    gifUrlIds,
   } = useContext(GiphyContext);
 
- console.log(gifUrlIds)
   const handleClick = (e) => {
     const valueClicked = Number(e.target.textContent);
 
     setClickedPaginationItem(valueClicked);
   };
 
+  const paginationNumber = Math.ceil(gifUrlIds.length / 10);
+
+  const divideGifUrlIds = [];
+  let array = [];
+
+  const crazy = gifUrlIds.filter((gifObj, i, arr) => {
+    if (i <= 9) array = [...array, gifObj];
+  });
+
+  /* si el array es mayor a 10 = crea un array de 10 y metelo en otro array */
+
   const handleClickArrowRight = () => {
     setClickedPaginationItem((prev) => {
-      console.log(prev);
       if (prev < 5) return prev + 1;
       else return prev;
     });
@@ -29,7 +37,6 @@ export const Pagination = () => {
 
   const handleClickArrowLeft = () => {
     setClickedPaginationItem((prev) => {
-      console.log(prev);
       if (prev > 1) return prev - 1;
       else return prev;
     });
@@ -40,9 +47,23 @@ export const Pagination = () => {
       setPaginationValue(limitOffset(clickedPaginationItem));
   }, [clickedPaginationItem]);
 
-  const paginationArray = [1, 2, 3, 4, 5];
+  let paginationArray = [];
+  let count = 0;
+  
+  while (paginationArray.length !== paginationNumber) {
+    count++;
+    paginationArray.push(count);
+  }
+
+  console.log(paginationArray);
   return (
-    <div className="flex items-center justify-center w-full max-w-fit gap-2 flex-wrap sm:flex-nowrap mt-5 ">
+    <div
+      className={
+        gifUrlIds.length > 0
+          ? `flex items-center justify-center w-full  gap-2 flex-wrap sm:max-w-sm mt-5 lg:max-w-105 `
+          : `hidden`
+      }
+    >
       <div className="pagination-item-shape">
         <svg
           xmlns="http://www.w3.org/2000/svg"
