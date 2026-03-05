@@ -42,34 +42,31 @@ export const Pagination = () => {
   let filtered;
   filtered = gifUrlIds.slice(0, 10);
 
-  console.log("out g " + gifUrlIds.length);
-  console.log("out f " + filtered.length);
+
+  const [notLoop, setNotLoop] = useState(true);
+
+  const divideElementFunction = (gapElements) => {
+    setNotLoop(true);
+    if (notLoop) {
+      filtered = gifUrlIds.slice(gapElements, gapElements + 10);
+      setNotLoop(!notLoop);
+      setArrFrag(filtered);
+    }
+  };
 
   useEffect(() => {
-    if (valueClicked || searchValue) {
-      if (clickedPaginationItem === 1) {
-        filtered = gifUrlIds.slice(0, 10);
-
-        // setArrFrag(filtered);
-      } else if (clickedPaginationItem === 2) {
-        filtered = gifUrlIds.slice(10, 20);
-        // setArrFrag(filtered);
-      } else if (clickedPaginationItem === 3) {
-        filtered = gifUrlIds.slice(20, 30);
-        // setArrFrag(filtered);
-      } else if (clickedPaginationItem === 4) {
-        filtered = gifUrlIds.slice(30, 40);
-        // setArrFrag(filtered);
-      } else if (clickedPaginationItem === 5) {
-        filtered = gifUrlIds.slice(40, 50);
-        // setArrFrag(filtered);
-      }
+    if (clickedPaginationItem === 1) {
+      divideElementFunction(0);
+    } else if (clickedPaginationItem === 2) {
+      divideElementFunction(10);
+    } else if (clickedPaginationItem === 3) {
+      divideElementFunction(20);
+    } else if (clickedPaginationItem === 4) {
+      divideElementFunction(30);
+    } else if (clickedPaginationItem === 5) {
+      divideElementFunction(40);
     }
 
-    // console.log({ filtered });
-
-    // console.log("-in g " + gifUrlIds.length);
-    // console.log("-in f " + filtered.length);
   }, [gifUrlIds]);
 
   let paginationArray = [];
