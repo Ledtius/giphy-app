@@ -20,6 +20,7 @@ export const GifList = () => {
     searchValueList,
     fetchActive,
     setSearchValue,
+    arrFrag,
   } = useContext(GiphyContext);
 
   return (
@@ -35,6 +36,7 @@ export const GifList = () => {
           valueClicked={valueClicked}
           statusFetch={statusFetch}
           gifUrlIds={gifUrlIds}
+          arrFrag={arrFrag}
         />
         <UpArrow />
       </motion.div>

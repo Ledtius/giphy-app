@@ -10,6 +10,7 @@ export const Conditional = ({
   valueClicked,
   statusFetch,
   gifUrlIds,
+  arrFrag,
 }) => {
   let content;
 
@@ -33,6 +34,7 @@ export const Conditional = ({
     content = (
       <Success
         gifUrlIds={gifUrlIds}
+        arrFrag={arrFrag}
         containerAnimator={containerAnimator}
         childrenAnimation={childrenAnimation}
         valueClicked={valueClicked}

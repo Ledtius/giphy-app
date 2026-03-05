@@ -42,7 +42,6 @@ export const Pagination = () => {
   let filtered;
   filtered = gifUrlIds.slice(0, 10);
 
-
   const [notLoop, setNotLoop] = useState(true);
 
   const divideElementFunction = (gapElements) => {
@@ -66,7 +65,6 @@ export const Pagination = () => {
     } else if (clickedPaginationItem === 5) {
       divideElementFunction(40);
     }
-
   }, [gifUrlIds]);
 
   let paginationArray = [];

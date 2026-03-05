@@ -44,7 +44,7 @@ export const useGiphy = () => {
     console.log({ arrFrag });
   }, [valueClicked, searchValue]);
 
-  // console.log({ arrFrag });
+  console.log({ arrFrag });
   return {
     searchValue,
     setSearchValue,
