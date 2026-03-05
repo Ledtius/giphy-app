@@ -27,7 +27,6 @@ export const Form = () => {
 
     setInputValue("");
   };
-
   return (
     <>
       <motion.form

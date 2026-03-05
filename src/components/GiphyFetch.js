@@ -12,7 +12,6 @@ export const GiphyFetch = () => {
     setStatusFetch,
     clickedPaginationItem,
   } = useContext(GiphyContext);
-
   // const { limit, offset } = paginationValue;
   const queryApi = async (value) => {
     try {
@@ -53,6 +52,7 @@ export const GiphyFetch = () => {
   }
 
   useEffect(() => {
+    console.log({valueClicked})
     conditionToFetch(searchValue);
     conditionToFetch(valueClicked);
   }, [searchValue, valueClicked, clickedPaginationItem]);

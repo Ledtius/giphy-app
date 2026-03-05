@@ -3,7 +3,6 @@ import { DarkModeContext } from "../context/DarkModeContext";
 
 export const Toggle = () => {
   const { theme, toggleTheme } = useContext(DarkModeContext);
-
   const rootElement = document.getElementById("root");
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export const Toggle = () => {
       /*         rootElement.style = "background-color:#fff";
        */
     }
-    console.log("Theme actual:", theme);
   }, [theme]);
 
   /* relative left-0 sm:left-45 md:left-100 */

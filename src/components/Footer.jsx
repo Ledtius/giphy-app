@@ -3,6 +3,8 @@ import { animations } from "./animations";
 
 export const Footer = () => {
   const { componentsAnimation } = animations();
+
+
   return (
     <motion.footer
       variants={componentsAnimation}

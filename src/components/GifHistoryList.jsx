@@ -21,7 +21,6 @@ export const GifHistoryList = () => {
     deleteAll,
     deleteOne,
   } = useContext(GiphyContext);
-
   const handleClick = (e) => {
     const eventValueText = e.target.textContent;
     setValueClicked(eventValueText);

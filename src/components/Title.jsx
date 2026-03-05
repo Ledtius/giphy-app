@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import { animations } from "./animations";
 export const Title = () => {
   const { componentsAnimation } = animations();
-
   return (
     <>
       <motion.h1

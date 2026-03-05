@@ -4,7 +4,6 @@ export const UpArrow = () => {
   function handlerClick() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-
   const [arrowClicked, setArrowClicked] = useState(false);
 
   const [scrollValue, setScrollValue] = useState();

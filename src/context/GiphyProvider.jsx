@@ -25,6 +25,8 @@ export const GiphyProvider = ({ children }) => {
     setClickedPaginationItem,
     paginationValue,
     setPaginationValue,
+    arrFrag,
+    setArrFrag,
   } = useGiphy();
 
   return (
@@ -52,6 +54,8 @@ export const GiphyProvider = ({ children }) => {
           setClickedPaginationItem,
           paginationValue,
           setPaginationValue,
+          arrFrag,
+          setArrFrag,
         }}
       >
         {children}

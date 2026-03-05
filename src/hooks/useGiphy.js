@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GiphyUrls } from "../services/GiphyUrls";
 import { useStorage } from "../hooks/useStorage";
+import { useEffect } from "react";
 
 export const useGiphy = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -37,6 +38,13 @@ export const useGiphy = () => {
     offset: 0,
   });
 
+  const [arrFrag, setArrFrag] = useState();
+
+  useEffect(() => {
+    console.log({ arrFrag });
+  }, [valueClicked, searchValue]);
+
+  // console.log({ arrFrag });
   return {
     searchValue,
     setSearchValue,
@@ -58,5 +66,7 @@ export const useGiphy = () => {
     setClickedPaginationItem,
     paginationValue,
     setPaginationValue,
+    arrFrag,
+    setArrFrag,
   };
 };

@@ -4,7 +4,6 @@ export const useStorage = (searchValue) => {
   const [searchValueList, setSearchValueList] = useState(() => {
     return JSON.parse(localStorage.getItem("searchValueStList")) || [];
   });
-
   useEffect(() => {
     if (searchValue) {
       const storageElement = { value: searchValue, id: crypto.randomUUID() };
