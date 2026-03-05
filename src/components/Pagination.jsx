@@ -40,7 +40,6 @@ export const Pagination = () => {
       setPaginationValue(limitOffset(clickedPaginationItem));
   }, [clickedPaginationItem]);
   let filtered;
-  filtered = gifUrlIds.slice(0, 10);
 
   const [notLoop, setNotLoop] = useState(true);
 
@@ -66,6 +65,12 @@ export const Pagination = () => {
       divideElementFunction(40);
     }
   }, [gifUrlIds]);
+
+  useEffect(() => {
+    if (searchValue || valueClicked) {
+      setClickedPaginationItem(1);
+    }
+  }, [searchValue, valueClicked]);
 
   let paginationArray = [];
   let count = 0;
