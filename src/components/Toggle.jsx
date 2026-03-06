@@ -19,7 +19,7 @@ export const Toggle = () => {
   /* relative left-0 sm:left-45 md:left-100 */
   return (
     <>
-      <div className="w-fit flex items-center justify-center gap-2 sm:absolute sm:right-0 mr-10 ml-10 mb-5 min-w-34">
+      <div className="w-fit flex items-center justify-center gap-2 min-[640px]:absolute min-[640px]:right-2  mr-10 ml-10 mb-5 min-w-34 max-w-fit max-[640px]:relative max-[640px]:-right-10">
         <input
           className="hidden peer"
           type="checkbox"
@@ -42,7 +42,7 @@ export const Toggle = () => {
           id="icon"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="lucide lucide-sun-icon lucide-su peer-not-checked:stroke-amber-500 absolute sm:-left-4 left-19 dark:stroke-white "
+          className="lucide lucide-sun-icon lucide-su peer-not-checked:stroke-amber-500 absolute sm:-left-4 left-19 min-[321px]:right-0 dark:stroke-white max-[640px]:relative max-[640px]:-left-35"
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />
