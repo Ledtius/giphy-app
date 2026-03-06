@@ -42,7 +42,7 @@ export const Toggle = () => {
           id="icon"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="lucide lucide-sun-icon lucide-su peer-not-checked:stroke-amber-500 absolute sm:-left-4 left-48 dark:stroke-white "
+          className="lucide lucide-sun-icon lucide-su peer-not-checked:stroke-amber-500 absolute sm:-left-4 left-19 dark:stroke-white "
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />

@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { GiphyContext } from "../context/GiphyContext";
 import { limitOffset } from "../services/limitOffset";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export const Pagination = () => {
+  const [parent] = useAutoAnimate();
   const {
     clickedPaginationItem,
     setClickedPaginationItem,
@@ -88,6 +90,7 @@ export const Pagination = () => {
             ? `flex items-center justify-center w-full  gap-2 flex-wrap sm:max-w-sm mt-5 lg:max-w-105 `
             : `hidden`
         }
+        ref={parent}
       >
         <div className="pagination-item-shape">
           <svg
