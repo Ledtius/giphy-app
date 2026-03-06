@@ -2,19 +2,35 @@ import { useContext, useEffect } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
 
 export const Toggle = () => {
-  const { theme, toggleTheme } = useContext(DarkModeContext);
-  const rootElement = document.getElementById("root");
+  const { theme, setTheme, toggleTheme } = useContext(DarkModeContext);
 
   useEffect(() => {
+    localStorage.setItem("theme", theme);
+    console.log(theme);
     if (theme === "dark") {
-      /* rootElement.style = "background-color:#0f172a"; */
       document.documentElement.classList.add("dark");
-    } else {
+    } else if (theme === "light") {
       document.documentElement.classList.remove("dark");
-      /*         rootElement.style = "background-color:#fff";
-       */
+    } else if (theme === "system") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        console.log("sss");
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+
+        setTheme("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        setTheme("light");
+      }
     }
   }, [theme]);
+
+  const themeStyle = () => {
+    if (theme === "dark") {
+      return `dark:stroke-white  peer-not-checked:stroke-amber-500`;
+    }
+  };
 
   /* relative left-0 sm:left-45 md:left-100 */
   return (
@@ -29,7 +45,9 @@ export const Toggle = () => {
         />
         <label
           htmlFor="check"
-          className="block w-18 h-6 bg-amber-400 rounded-full before:content-[''] before:bg-gray-100 before:w-8 before:h-4 before:block before:rounded-full before:absolute before:m-1 peer-checked:bg-blue-600 peer-checked:before:translate-x-8 peer-checked:before:transition-all before:transition-all"
+          className={`block w-18 h-6  rounded-full before:content-[''] before:bg-gray-100 before:w-8 before:h-4 before:block before:rounded-full before:absolute before:m-1  
+          
+            peer-checked:before:transition-all before:transition-all  ${theme === "light" ? "bg-amber-400 " : "bg-blue-600 before:translate-x-8 "}`}
         ></label>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +60,7 @@ export const Toggle = () => {
           id="icon"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="lucide lucide-sun-icon lucide-su peer-not-checked:stroke-amber-500 absolute sm:-left-4 left-19 min-[321px]:right-0 dark:stroke-white max-[640px]:relative max-[640px]:-left-35"
+          className={`lucide lucide-sun-icon lucide-su absolute sm:-left-4 left-19 min-[321px]:right-0 max-[640px]:relative max-[640px]:-left-35 ${theme === "light" ? "stroke-amber-400" : "stroke-white"}`}
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />
@@ -65,7 +83,7 @@ export const Toggle = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           htmlFor="check"
-          className="lucide lucide-moon-icon lucide-moon peer-checked:stroke-blue-600"
+          className={`lucide lucide-moon-icon lucide-moon peer-checked:stroke-blue-600 ${theme === "light" ? "stroke-black" : "stroke-blue-500"}`}
         >
           <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
         </svg>
