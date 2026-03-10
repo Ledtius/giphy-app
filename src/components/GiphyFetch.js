@@ -52,7 +52,6 @@ export const GiphyFetch = () => {
   }
 
   useEffect(() => {
-    console.log({ valueClicked });
     conditionToFetch(searchValue);
     conditionToFetch(valueClicked);
   }, [searchValue, valueClicked]);

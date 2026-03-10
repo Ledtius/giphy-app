@@ -40,11 +40,6 @@ export const useGiphy = () => {
 
   const [arrFrag, setArrFrag] = useState();
 
-  useEffect(() => {
-    console.log({ arrFrag });
-  }, [valueClicked, searchValue]);
-
-  console.log({ arrFrag });
   return {
     searchValue,
     setSearchValue,
