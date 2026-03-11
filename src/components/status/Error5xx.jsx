@@ -1,0 +1,35 @@
+import { motion } from "motion/react";
+import error5xx from "../../assets/5xx-error.svg";
+
+export const Error5xx = ({
+  containerAnimation,
+  childrenAnimation,
+  statusFetch,}
+) => {
+  return (
+    <motion.div
+      className="basic-alight"
+      key="error-5xx"
+      variants={containerAnimation}
+      initial="hidden"
+      animate="visible"
+      exit="out"
+    >
+      <motion.img
+        variants={childrenAnimation}
+        initial="hidden"
+        animate="visible"
+        src={error5xx}
+        className="imgs-speakers"
+      />
+      <motion.span
+        variants={childrenAnimation}
+        initial="hidden"
+        animate="visible"
+        className="font-bold dark:text-slate-300"
+      >
+        Error: {statusFetch}
+      </motion.span>
+    </motion.div>
+  );
+};
