@@ -1,4 +1,4 @@
-# Buscador de Gifs
+# GiphyApp - Buscador de Gifs
 
 Es una SPA interactiva que te permite buscar gifs que desees. La API que consume esta aplicación viene de parte del equipo de Giphy.
 
