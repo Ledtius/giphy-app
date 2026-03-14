@@ -11,9 +11,10 @@ import { animations } from "./components/animations";
 import { Header } from "./components/Header";
 import { DarModeProvider } from "./context/DarkModeContext";
 import { Pagination } from "./components/Pagination";
+
+
 function App() {
   const { containerAnimation } = animations();
-
   return (
     <motion.div
       className="flex flex-col items-center dark:dark:bg-slate-900 p-8 bg-white min-w-80 w-full h-fit justify-between"

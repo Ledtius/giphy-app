@@ -22,11 +22,11 @@ Es una SPA interactiva que te permite buscar los gifs que desees. Esta aplicaci�
 
 - **Modularización y delegación de responsabilidades** (`/hooks`, `/pages`, `/services`, `files.js`, etc.)
 
-- **Ciclo de vida de componentes**: montaje, actualización (re-render) y desmontaje
+- **Animaciones** (Tansiciones, fades, animaciones al aparecer y desaparecer un componente en el DOM)
 
 - **Tailwind CSS** (modo oscuro, diseño responsive, transiciones, clases personalizadas con `@apply`, etc.)
 
-## 📖 Librerias
+## 📖 Librerias usadas (Animaciones):
 
 - AutoAnimate
 - Notion

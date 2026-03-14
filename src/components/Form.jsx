@@ -57,7 +57,7 @@ export const Form = () => {
             placeholder="Michael Jordan"
             id="search"
             name="search"
-            autoComplete="off"
+            Loo="off"
             value={inputValue}
             onChange={handleInput}
           />
